@@ -7,6 +7,7 @@ import HamburgerMenu from "./components/ui/nav/hamburgerMenu"
 import { Footer } from "./layouts/main"
 import CommentsPage from "./components/page/commentsPage"
 import Login from "./layouts/login"
+import UserListPage from "./components/page/userListPage"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Switch>
         <Route path={"/services"} component={ServicesListPage} />
         <Route path={"/comments"} component={CommentsPage} />
+        <Route path={"/userpage"} component={UserListPage} />
         <Route path={"/login/:type?"} component={Login} />
         <Route path={"/"} exact component={HomePage} />
       </Switch>

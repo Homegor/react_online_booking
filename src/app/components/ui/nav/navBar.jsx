@@ -1,7 +1,6 @@
 import React from "react"
 import NavProfile from "./navProfile"
 import ContactForMe from "./contactForMe"
-import NavLogin from "./navLogin"
 import { Link } from "react-router-dom"
 
 const NavBar = () => {
@@ -29,7 +28,6 @@ const NavBar = () => {
           <Link className={"menu__item"} to={"/login"}>
             Вход/Регистрация
           </Link>
-          <NavLogin />
         </li>
 
         <ContactForMe />

@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Link } from "react-router-dom"
 
 const NavProfile = () => {
   const [isOpen, setOpen] = useState(false)
@@ -35,14 +36,14 @@ const NavProfile = () => {
               aria-labelledby='dropdownMenuButton1'
             >
               <li>
-                <a className='dropdown-item' href='#'>
+                <Link className='dropdown-item' to='/userpage'>
                   Профиль
-                </a>
+                </Link>
               </li>
               <li>
-                <a className='dropdown-item' href='#'>
+                <Link className='dropdown-item' to='#'>
                   Выйти
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -18,7 +18,6 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
       <div className='input-group has-validation mb-3'>
         <input
           className={getInputClasses()}
-          id={name}
           value={value}
           type={showPassword ? "text" : type}
           name={name}

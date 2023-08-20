@@ -12,6 +12,7 @@ const RegisterForm = () => {
     email: "",
     password: "",
     name: "",
+    phone: "",
     date: "",
     sex: "",
     licence: false
@@ -53,6 +54,18 @@ const RegisterForm = () => {
       isRequired: {
         message:
           "Нажимая вы подтверждаете что ознакомились с лицензионным соглашением"
+      }
+    },
+    phone: {
+      isRequired: {
+        message: "Обязательно для заполнения"
+      },
+      isOnlyNumber: {
+        message: "Должен содержать только цифры"
+      },
+      isNumberValid: {
+        message: "Не менее 11 символов",
+        value: 11
       }
     }
   }
@@ -96,6 +109,14 @@ const RegisterForm = () => {
         value={data.email}
         onChange={handleChange}
         error={errors.email}
+      />
+      <TextField
+        type={"tel"}
+        name={"phone"}
+        value={data.phone}
+        onChange={handleChange}
+        error={errors.phone}
+        label={"Номер телефона"}
       />
       <RadioField
         options={[

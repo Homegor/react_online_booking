@@ -31,6 +31,15 @@ export function validator(data, config) {
         statusValidate = data.length < config.value
         break
       }
+      case "isOnlyNumber": {
+        const numberRegexp = /[1-9]+/g
+        statusValidate = !numberRegexp.test(data)
+        break
+      }
+      case "isNumberValid": {
+        statusValidate = data.length < config.value
+        break
+      }
       default:
         break
     }

@@ -36,7 +36,7 @@ const NavProfile = () => {
               aria-labelledby='dropdownMenuButton1'
             >
               <li>
-                <Link className='dropdown-item' to='/userpage'>
+                <Link className='dropdown-item' to='/userPage'>
                   Профиль
                 </Link>
               </li>

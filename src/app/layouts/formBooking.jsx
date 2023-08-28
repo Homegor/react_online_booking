@@ -36,7 +36,6 @@ const FormBooking = () => {
     const errors = validator(data, validatorConfig)
     setErrors(errors)
   }
-  const isValid = Object.keys(errors).length === 0
   const handleChange = (target) => {
     setData((prevState) => ({
       ...prevState,
@@ -46,8 +45,7 @@ const FormBooking = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    const isValid = validate()
-    if (!isValid) return
+    if (Object.keys(errors).length !== 0) return
     console.log("e", data)
   }
 
@@ -77,7 +75,6 @@ const FormBooking = () => {
       />
       <button
         type={"submit"}
-        disabled={!isValid}
         className={"btn form__button"}
         name={"Записаться"}
       >

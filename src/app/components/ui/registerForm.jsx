@@ -3,10 +3,10 @@ import TextField from "../common/form/textField"
 import CheckBoxField from "../common/form/checkBoxField"
 import RadioField from "../common/form/radioField"
 import { validator } from "../../utils/validator"
-import { useHistory } from "react-router-dom"
+// import { useHistory } from "react-router-dom"
 
 const RegisterForm = () => {
-  const history = useHistory()
+  // const history = useHistory()
   const [errors, setErrors] = useState({})
   const [data, setData] = useState({
     email: "",
@@ -87,7 +87,7 @@ const RegisterForm = () => {
     const isValid = validate()
     if (!isValid) return
     try {
-      history.push("/")
+      // history.push("/")
     } catch (error) {
       setErrors(error)
     }

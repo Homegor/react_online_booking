@@ -28,7 +28,7 @@ const NavLogin = () => {
         </Link>
       </li>
       <li>
-        <Link className='menu__item user-room__menu-item' to={"/"}>
+        <Link className='menu__item user-room__menu-item' to={"/userList"}>
           Настройки
         </Link>
       </li>

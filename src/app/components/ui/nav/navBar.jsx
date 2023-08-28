@@ -25,7 +25,7 @@ const NavBar = () => {
               {link.name}
             </Link>
           ))}
-          <Link className={"menu__item"} to={"/login"}>
+          <Link className={"menu__item"} to={"/auth/login"}>
             Вход/Регистрация
           </Link>
         </li>

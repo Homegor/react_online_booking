@@ -1,22 +1,22 @@
 const categories = {
   haircut: {
-    _id: "67rdca3ee",
+    _id: "67rd54357ca3ee436357",
     name: "Стрижка и укладка"
   },
   cosmetology: {
-    _id: "67rdca3ee",
+    _id: "67rd234ca3ee1435426",
     name: "Косметология"
   },
   manicureAndPedicure: {
-    _id: "67rdca3ee",
+    _id: "67rds324ca3ee",
     name: "Маникюр и педикюр"
   },
-  makeup: { _id: "67rdca3ee", name: "Макияж" },
+  makeup: { _id: "67r4324dca3ee", name: "Макияж" },
   eyebrowsAndEyelashes: {
-    _id: "67rdca3eeb7f",
+    _id: "67rd23465ca3eeb7f",
     name: "Брови и ресницы"
   },
-  massage: { _id: "67rdca3eeb", name: "Массаж" }
+  massage: { _id: "67645567dca3eeb", name: "Массаж" }
 }
 
 const services = [

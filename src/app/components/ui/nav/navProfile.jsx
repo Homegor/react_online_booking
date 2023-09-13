@@ -32,7 +32,7 @@ const NavProfile = () => {
               ФИО
             </button>
             <ul
-              className={"dropdown-menu " + (isOpen ? "show" : "")}
+              className={"dropdown-menu " + (isOpen === true ? "show" : "")}
               aria-labelledby='dropdownMenuButton1'
             >
               <li>

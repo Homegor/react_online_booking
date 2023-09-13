@@ -6,19 +6,19 @@ const TextAreaField = ({ label, name, value, onChange, error }) => {
     onChange({ name: target.name, value: target.value })
   }
   return (
-    <>
+    <div className={"mb-4"}>
       <label htmlFor={name}>{label}</label>
       <div className='form-floating'>
         <textarea
           className='form-control'
+          name={name}
           id={name}
           value={value}
           onChange={handleChange}
-          style='height: 100px'
-        ></textarea>
-        <label htmlFor='floatingTextarea2'>Comments</label>
+        />
+        {error && <div className='invalid-feedback'>{error}</div>}
       </div>
-    </>
+    </div>
   )
 }
 TextAreaField.defaultProps = {

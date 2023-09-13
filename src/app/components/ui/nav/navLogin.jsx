@@ -7,20 +7,26 @@ const NavLogin = () => {
   return (
     <ul className='list-group user-room__Navbar list-group-flush'>
       <li>
-        {isAdmin ? (
-          <Link className='menu__item user-room__menu-item ' to={"/userPage"}>
-            Все пользователи
+        {!isAdmin ? (
+          <Link
+            className='menu__item user-room__menu-item '
+            to={"/userPage/about"}
+          >
+            Все пользователи АДМИН
           </Link>
         ) : (
-          <Link className='menu__item user-room__menu-item ' to={"/userPage"}>
-            Пользователь
+          <Link
+            className='menu__item user-room__menu-item '
+            to={"/userPage/about"}
+          >
+            Пользователь НЕ Админ
           </Link>
         )}
       </li>
       <li>
         <Link
           className='menu__item user-room__menu-item'
-          to={"/userPage/Static"}
+          to={"/userPage/static"}
         >
           Статистика
         </Link>
@@ -28,7 +34,7 @@ const NavLogin = () => {
       <li>
         <Link
           className='menu__item user-room__menu-item'
-          to={"/userPage/Booking"}
+          to={"/userPage/booking"}
         >
           Записи
         </Link>
@@ -36,13 +42,13 @@ const NavLogin = () => {
       <li>
         <Link
           className='menu__item user-room__menu-item'
-          to={"/userList/Settings"}
+          to={"/userPage/settings"}
         >
           Настройки
         </Link>
       </li>
       <li>
-        <Link className='menu__item user-room__menu-item' to={"/userList/Edit"}>
+        <Link className='menu__item user-room__menu-item' to={"/userPage/edit"}>
           Редактировать
         </Link>
       </li>

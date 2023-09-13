@@ -1,6 +1,7 @@
 import React from "react"
 import NavLogin from "../../ui/nav/navLogin"
 import ButtonsBooking from "../../common/form/buttonsBooking"
+import AboutUser from "../../../layouts/aboutUser"
 
 const UserListPage = () => {
   return (
@@ -12,7 +13,8 @@ const UserListPage = () => {
         </div>
         <div className='col-sm-8 user-room__bar m-2'>
           <div className='row user-info'>
-            <div className='col-6 col-md-4 user-room__request text-center p-2'>
+            <AboutUser />
+            {/*            <div className='col-6 col-md-4 user-room__request text-center p-2'>
               <p>Фамилия/Имя</p>
             </div>
             <div className='col-12 col-md-8 user-room__info text-center p-2'>
@@ -41,7 +43,7 @@ const UserListPage = () => {
             </div>
             <div className='col-12 col-md-8 text-center p-2'>
               <p>Ссылка на телеграм</p>
-            </div>
+            </div>*/}
           </div>
           <div className={"d-flex justify-content-end"}>
             <ButtonsBooking className={"m-2"} name={"Редактировать"} />

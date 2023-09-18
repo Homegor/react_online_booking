@@ -3,14 +3,15 @@ import { Tabs } from "../../../common/tabs"
 
 const Prise = () => {
   return (
-    <div className='price mw'>
-      <div className='price__information'>
-        <p className='price__title title'>Услуги и цены</p>
-      </div>
-      <div id='myTabs' className='tabs'>
-        <div className='tabs__navigation'>
-          <ul className='tabs__container'>
-            {/*             <li className='tabs__link active' onclick="openTab(event, 'haircut')">
+    <section>
+      <div className='price mw'>
+        <div className='price__information'>
+          <p className='price__title title'>Услуги и цены</p>
+        </div>
+        <div id='myTabs' className='tabs'>
+          <div className='tabs__navigation'>
+            <ul className='tabs__container'>
+              {/*             <li className='tabs__link active' onclick="openTab(event, 'haircut')">
               Стрижка и укладка
             </li>
             <li className='tabs__link' onclick="openTab(event, 'cosmetology')">
@@ -34,10 +35,10 @@ const Prise = () => {
             <li className='tabs__link'>Макияж</li>
             <li className='tabs__link'>Брови и ресницы</li>
             <li className='tabs__link'>Массаж</li>*/}
-            <Tabs />
-          </ul>
-        </div>
-        {/*        <div id='haircut' className='name name__active'>
+              <Tabs />
+            </ul>
+          </div>
+          {/*        <div id='haircut' className='name name__active'>
                     <div className='name__box'>
             <div className='name__left'>
               <p className='name__title'>Стрижка бороды и усов</p>
@@ -158,8 +159,9 @@ const Prise = () => {
           </div>
         </div>
         </div>*/}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }
 

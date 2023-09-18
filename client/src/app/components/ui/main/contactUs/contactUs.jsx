@@ -12,53 +12,57 @@ import FormBooking from "../../form/bookingForm"
 
 const ContactFooter = () => {
   return (
-    <div className='full contact'>
-      <div className='contact__container mw'>
-        <div className='contact__left-right left-right'>
-          <div className='contact__left'>
-            <div className='reference'>
-              <ul>
-                {/* <li className="reference__title title"><h1>Контакты</h1></li>
+    <section className={"mw full"}>
+      <div className='full contact'>
+        <div className='contact__container mw'>
+          <div className='contact__left-right left-right'>
+            <div className='contact__left'>
+              <div className='reference'>
+                <ul>
+                  {/* <li className="reference__title title"><h1>Контакты</h1></li>
                   <li className="reference__street"><p >Томск, проспект Ленина, дом 13</p></li>
                   <li className="reference__phone"><a href="tel: +74996861762" onclick="phone_number();return false">8 (499) 686-17-62</a></li>
                   <li className="reference__email politic"><a href="mailto:info@more-krasoty.ru" onclick="mail_too();return false">info@more-krasoty.ru</a></li> */}
-                <li className='reference__title title'>
-                  <h1>Контакты</h1>
-                </li>
-                <li className='reference__street'>
-                  <p>Томск, проспект Ленина, дом 13</p>
-                </li>
-                <li className='reference__phone'>
-                  <a href='tel: +74996861762'>8 (499) 686-17-62</a>
-                </li>
-                <li className='reference__email politic'>
-                  <a href='mailto:info@more-krasoty.ru'>info@more-krasoty.ru</a>
-                </li>
-              </ul>
-              <div className='reference__social'>
-                <p className='reference__subtitle'>Мы в социальных сетях</p>
-                <ul className='reference__social-all'>
-                  <li className='reference__social-icon'>
-                    <Icons srcImg={vk} url={"#"} altName={"VK"} />
+                  <li className='reference__title title'>
+                    <h1>Контакты</h1>
                   </li>
-                  <li className='reference__social-icon'>
-                    <Icons srcImg={yt} url={"#"} altName={"YouTube"} />
+                  <li className='reference__street'>
+                    <p>Томск, проспект Ленина, дом 13</p>
                   </li>
-                  <li className='reference__social-icon'>
-                    <Icons srcImg={inst} url={"#"} altName={"Instagram"} />
+                  <li className='reference__phone'>
+                    <a href='tel: +74996861762'>8 (499) 686-17-62</a>
+                  </li>
+                  <li className='reference__email politic'>
+                    <a href='mailto:info@more-krasoty.ru'>
+                      info@more-krasoty.ru
+                    </a>
                   </li>
                 </ul>
+                <div className='reference__social'>
+                  <p className='reference__subtitle'>Мы в социальных сетях</p>
+                  <ul className='reference__social-all'>
+                    <li className='reference__social-icon'>
+                      <Icons srcImg={vk} url={"#"} altName={"VK"} />
+                    </li>
+                    <li className='reference__social-icon'>
+                      <Icons srcImg={yt} url={"#"} altName={"YouTube"} />
+                    </li>
+                    <li className='reference__social-icon'>
+                      <Icons srcImg={inst} url={"#"} altName={"Instagram"} />
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-          <div className='contact__right'>
-            <div className='form'>
-              <FormBooking />
+            <div className='contact__right'>
+              <div className='form'>
+                <FormBooking />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

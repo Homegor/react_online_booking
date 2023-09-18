@@ -1,9 +1,9 @@
 import React from "react"
-import Vk from "./socialIcons/vk"
-import Inst from "./socialIcons/inst"
-import YouTube from "./socialIcons/youtube"
+import Vk from "./vk"
+import Inst from "./inst"
+import YouTube from "./youtube"
 
-const Social = () => {
+const Index = () => {
   return (
     <>
       <ul className='hero__social-center'>
@@ -21,4 +21,4 @@ const Social = () => {
   )
 }
 
-export default Social
+export default Index

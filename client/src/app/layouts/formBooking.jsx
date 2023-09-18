@@ -45,7 +45,7 @@ const FormBooking = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (Object.keys(errors).length !== 0) return
+    if (Object(errors).length !== 0) return
     console.log("e", data)
   }
 

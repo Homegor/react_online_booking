@@ -1,6 +1,6 @@
 import React from "react"
 
-import Social from "../../components/common/social"
+import Index from "../../components/common/socialIcons"
 import Sections from "../sections"
 // import ButtonsBooking from "../../components/common/form/buttonsBooking"
 
@@ -36,7 +36,7 @@ const TopHeader = () => {
             <img className='hero__girl' src={girl} alt='фото' />
           </div>
           <div className='hero__social'>
-            <Social />
+            <Index />
           </div>
         </div>
       </header>

@@ -1,12 +1,12 @@
 import React from "react"
-import HomePage from "../components/page/homePage"
-import Login from "../layouts/login"
-import ServicesListPage from "../components/page/servicesListPage"
-import CommentsPage from "../components/page/commentsPage"
-import UserListPage from "../components/page/userListPage"
-import BookingUsers from "../layouts/bookingUsers"
+import HomePage from "../components/pages/homePage"
+import ServicesListPage from "../components/pages/servicesListPage"
+import CommentsPage from "../components/pages/commentsPage"
+import RegisterPage from "../components/pages/registerPage"
+import LoginPage from "../components/pages/loginPage/loginPage"
+import Login from "../layout/login"
 import { Navigate } from "react-router-dom"
-import AboutUser from "../layouts/aboutUser"
+import AdminPage from "../components/pages/adminPage/adminPage"
 
 export const Routes = (isLoggedIn, location) => [
   {
@@ -14,32 +14,26 @@ export const Routes = (isLoggedIn, location) => [
     element: <HomePage />
   },
   {
-    path: "comments",
-    element: <CommentsPage />
-  },
-  {
     path: "services",
     element: <ServicesListPage />
   },
   {
-    path: "auth/login",
-    element: <Login />
+    path: "comments",
+    element: <CommentsPage />
   },
   {
-    path: "/userPage",
-    element: <UserListPage />,
+    path: "",
+    element: <Login />,
     children: [
-      { path: "", element: <Navigate to={"/auth/userPage"} /> },
-      { path: "about", element: <AboutUser /> },
-      { path: "booking", element: <BookingUsers /> },
-      { path: "*", element: <Navigate to={"/auth/userPage"} /> }
+      { path: "", element: <Navigate to={"login"} /> },
+      { path: "login", element: <LoginPage /> },
+      { path: "register", element: <RegisterPage /> },
+      { path: "*", element: <Navigate to={"login"} /> }
     ]
-  }
-]
-export const tabs = () => [
+  },
   {
-    path: "/",
-    element: <Navigate to={"/m&p"} />
+    path: "userPage",
+    element: <AdminPage />
   }
 ]
 

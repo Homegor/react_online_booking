@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import TabsContent from "./tabsContent"
+import { TabsContent } from "./index"
 
 const Tabs = () => {
   const tabsLink = [

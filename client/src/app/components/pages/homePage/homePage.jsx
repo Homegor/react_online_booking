@@ -11,6 +11,7 @@ import {
   Prise,
   Services
 } from "../../ui/main"
+import { Outlet } from "react-router-dom"
 
 const HomePage = () => {
   return (
@@ -19,32 +20,24 @@ const HomePage = () => {
         <Header />
       </div>
       <main>
-        <section>
-          <AboutUs />
-        </section>
-        <section>
-          <Benefit />
-        </section>
-        <section>
-          <Services />
-        </section>
-        <section>
-          <Prise />
-        </section>
-        <section className={"mw full"}>
-          <Masters />
-        </section>
-        <section>
-          <Gallery />
-        </section>
-        <section>
-          <Brands />
-        </section>
-        <section className={"mw full"}>
-          <ContactUs />
-        </section>
+        <AboutUs />
+
+        <Benefit />
+
+        <Services />
+
+        <Prise />
+
+        <Masters />
+
+        <Gallery />
+
+        <Brands />
+
+        <ContactUs />
       </main>
       <Footer />
+      <Outlet />
     </>
   )
 }

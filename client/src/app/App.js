@@ -12,10 +12,10 @@ function App() {
   return (
     <div>
       <HamburgerMenu />
-      <Modal />
       {elements}
 
       <ToastContainer />
+      <Modal />
     </div>
   )
 }

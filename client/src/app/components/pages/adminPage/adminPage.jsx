@@ -1,5 +1,6 @@
 import React from "react"
 import NavUserProfile from "../../ui/nav/userProfile"
+import { Outlet } from "react-router-dom"
 
 const AdminPage = () => {
   return (
@@ -10,8 +11,7 @@ const AdminPage = () => {
           <NavUserProfile />
         </div>
         <div className='col-sm-8 user-room__bar m-2'>
-          <div className='row user-info'>
-            <div className='col-6 col-md-4 user-room__request text-center p-2'>
+          {/*            <div className='col-6 col-md-4 user-room__request text-center p-2'>
               <p>Фамилия/Имя</p>
             </div>
             <div className='col-12 col-md-8 user-room__info text-center p-2'>
@@ -40,8 +40,8 @@ const AdminPage = () => {
             </div>
             <div className='col-12 col-md-8 text-center p-2'>
               <p>Ссылка на телеграм</p>
-            </div>
-          </div>
+            </div> */}
+          <Outlet />
           {/*          <div className={"d-flex justify-content-end"}>
             <ButtonsBooking className={"m-2"} name={"Редактировать"} />
           </div>*/}

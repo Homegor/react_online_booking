@@ -23,7 +23,7 @@ const ServicesBookingForm = () => {
       <hr />
       <div className='fli d-flex flex-wrap justify-content-center'>
         <CheckBoxServices
-          name={"Маникюр и Педикюр"}
+          name={"manicureAndPedicure"}
           id={"myCheckbox1"}
           htmlfor={"myCheckbox1"}
           src={
@@ -35,7 +35,7 @@ const ServicesBookingForm = () => {
           <p className={"mt-2"}>Маникюр и педикюр</p>
         </CheckBoxServices>
         <CheckBoxServices
-          name={"Стрижка и укладка"}
+          name={"haircut"}
           id={"myCheckbox2"}
           htmlfor={"myCheckbox2"}
           src={
@@ -47,7 +47,7 @@ const ServicesBookingForm = () => {
           <p className={"mt-2"}>Стрижка и укладка</p>
         </CheckBoxServices>
         <CheckBoxServices
-          name={"Косметология"}
+          name={"cosmetology"}
           id={"myCheckbox3"}
           htmlfor={"myCheckbox3"}
           src={
@@ -59,7 +59,7 @@ const ServicesBookingForm = () => {
           <p className={"mt-2"}>Косметология</p>
         </CheckBoxServices>
         <CheckBoxServices
-          name={"Макияж"}
+          name={"makeup"}
           id={"myCheckbox4"}
           htmlfor={"myCheckbox4"}
           src={
@@ -71,7 +71,7 @@ const ServicesBookingForm = () => {
           <p className={"mt-2"}>Макияж</p>
         </CheckBoxServices>
         <CheckBoxServices
-          name={"Брови и ресницы"}
+          name={"eyebrowsAndEyelashes"}
           id={"myCheckbox5"}
           htmlfor={"myCheckbox5"}
           src={
@@ -83,7 +83,7 @@ const ServicesBookingForm = () => {
           <p className={"mt-2"}>Брови и ресницы</p>
         </CheckBoxServices>
         <CheckBoxServices
-          name={"Массаж"}
+          name={"massage"}
           id={"myCheckbox6"}
           htmlfor={"myCheckbox6"}
           src={
@@ -98,5 +98,4 @@ const ServicesBookingForm = () => {
     </>
   )
 }
-
 export default ServicesBookingForm

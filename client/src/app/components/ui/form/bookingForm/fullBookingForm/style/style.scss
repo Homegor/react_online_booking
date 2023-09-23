@@ -1,4 +1,4 @@
-.div-input{
+.div-input {
   width: 45%;
 }
 .fli > input[type="checkbox"][id^="myCheckbox"] {
@@ -41,13 +41,12 @@
   border-radius: 5px;
 }
 
-.fli > input:checked +  label {
+.fli > input:checked + label {
   border-color: #fb9475;
   border-radius: 15px;
-
 }
 
-.fli > input:checked +  label:before {
+.fli > input:checked + label:before {
   content: "✓";
   background-color: #fb9475;
   transform: scale(1);

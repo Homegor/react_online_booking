@@ -23,7 +23,7 @@ const MastersBookingForm = (props) => {
       <h1>Наши Мастера</h1>
       <div className='fli d-flex flex-wrap justify-content-center'>
         <CheckBoxServices
-          name={"Краснова Ирина"}
+          name={"ki"}
           id={"myCheckbox7"}
           htmlfor={"myCheckbox7"}
           src={girl1}
@@ -33,7 +33,7 @@ const MastersBookingForm = (props) => {
           <p className={"mt-2"}>Краснова Ирина</p>
         </CheckBoxServices>
         <CheckBoxServices
-          name={"Калилова Жанна"}
+          name={"kj"}
           id={"myCheckbox8"}
           htmlfor={"myCheckbox8"}
           src={girl2}
@@ -43,7 +43,7 @@ const MastersBookingForm = (props) => {
           <p className={"mt-2"}>Калилова Жанна</p>
         </CheckBoxServices>
         <CheckBoxServices
-          name={"Киселева Алина"}
+          name={"ka"}
           id={"myCheckbox9"}
           htmlfor={"myCheckbox9"}
           src={girl3}
@@ -53,7 +53,7 @@ const MastersBookingForm = (props) => {
           <p className={"mt-2"}>Киселева Алина</p>
         </CheckBoxServices>
         <CheckBoxServices
-          name={"Иванова Елена"}
+          name={"ie"}
           id={"myCheckbox10"}
           htmlfor={"myCheckbox10"}
           src={girl4}

@@ -9,7 +9,6 @@ import {
 const ServicesListPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("Отправлено")
   }
 
   return (
@@ -26,4 +25,5 @@ const ServicesListPage = () => {
     </section>
   )
 }
+
 export default ServicesListPage

@@ -14,7 +14,6 @@ const RegisterForm = () => {
     password: "",
     name: "",
     phone: "",
-    date: "",
     sex: "",
     licence: false
   })
@@ -41,6 +40,7 @@ const RegisterForm = () => {
     } catch (error) {
       setErrors(error)
     }
+    console.log(data)
   }
   return (
     <form onSubmit={handleSubmit}>

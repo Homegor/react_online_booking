@@ -11,7 +11,6 @@ const UserListBookingForm = (props) => {
   })
   const handleChange = (target) => {
     setData((prevState) => ({ ...prevState, [target.name]: target.value }))
-    console.log(target)
   }
   return (
     <>

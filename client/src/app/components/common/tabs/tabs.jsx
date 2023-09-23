@@ -29,7 +29,6 @@ const Tabs = () => {
     }
   ]
   const [isActive, setIsActive] = useState()
-  console.log(isActive)
 
   const handelChange = (e) => {
     e.preventDefault()

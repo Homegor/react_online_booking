@@ -10,7 +10,7 @@ const LoginPage = () => {
       <div className='text-center'>
         <p>
           Вы еще не зарегистрированы?
-          <Link role={"button"} to={"/register"} className={"text-danger"}>
+          <Link role={"button"} to={"/auth/register"} className={"text-danger"}>
             <br />
             Регистрация
           </Link>

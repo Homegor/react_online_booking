@@ -3,7 +3,7 @@ import TextField from "../../../common/form/textField"
 import { validator } from "../../../../utils/validator"
 import validConfig from "./validConfig"
 import RadioField from "../../../common/form/radio"
-import CheckBoxField from "../../../common/form/checkBox"
+import { CheckBoxField } from "../../../common/form/checkBox"
 // import { useHistory } from "react-router-dom"
 
 const RegisterForm = () => {

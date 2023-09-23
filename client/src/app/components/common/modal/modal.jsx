@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
-import FormBooking from "../../ui/form/bookingForm"
+import FastBookingForm from "../../ui/form/bookingForm/fastBookingForm"
 
 const Modal = ({ children, visible, setVisible }) => {
   const [isOpenModal, setIsOpenModal] = useState(false)
@@ -15,7 +15,7 @@ const Modal = ({ children, visible, setVisible }) => {
       onClick={toggleModal}
     >
       <div className={"modalContent"} onClick={(e) => e.stopPropagation()}>
-        <FormBooking />
+        <FastBookingForm />
       </div>
     </div>
   )

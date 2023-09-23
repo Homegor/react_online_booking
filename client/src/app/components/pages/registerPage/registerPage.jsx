@@ -10,7 +10,7 @@ const RegisterPage = () => {
       <div className='text-center'>
         <p>
           Уже есть аккаунт?
-          <Link role={"button"} to={"/login"} className={"text-danger"}>
+          <Link role={"button"} to={"/auth/login"} className={"text-danger"}>
             <br />
             Войти
           </Link>

@@ -1,3 +1,4 @@
 import CheckBoxField from "./checkBoxField"
+import CheckBoxServices from "./checkBoxServices"
 
-export default CheckBoxField
+export { CheckBoxField, CheckBoxServices }

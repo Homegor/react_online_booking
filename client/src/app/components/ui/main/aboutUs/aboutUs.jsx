@@ -4,7 +4,7 @@ import video from "../../../../assets/img/video.png"
 
 const AboutUs = () => {
   return (
-    <section id='about' className={"container"}>
+    <section id='about'>
       <div className='about mw'>
         <div className='about__information'>
           <div className='about__container'>

@@ -2,13 +2,13 @@ import React from "react"
 // import Vk from "../../components/common/socialIcons/vk"
 // import Inst from "../../components/common/socialIcons/inst"
 // import YouTube from "../../components/common/socialIcons/youtube"
-// import FormBooking from "../formBooking"
+// import FastBookingForm from "../formBooking"
 import PropTypes from "prop-types"
 import Icons from "../../../common/icons"
 import vk from "../../../../assets/img/vk.png"
 import yt from "../../../../assets/img/yt.png"
 import inst from "../../../../assets/img/inst.png"
-import FormBooking from "../../form/bookingForm"
+import FastBookingForm from "../../form/bookingForm/fastBookingForm"
 
 const ContactFooter = () => {
   return (
@@ -56,7 +56,7 @@ const ContactFooter = () => {
             </div>
             <div className='contact__right'>
               <div className='form'>
-                <FormBooking />
+                <FastBookingForm />
               </div>
             </div>
           </div>

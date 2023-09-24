@@ -1,44 +1,31 @@
-const { Schema, model } = require("mongoose")
+const { Schema, model } = require("mongoose");
 
 const schema = new Schema(
   {
-    name: {
-      type: String,
-      required: true
-    },
     email: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
     },
-    password: {
-      type: String
-    },
-    birthdate: {
-      type: String
-    },
-    image: {
-      type: String
-    },
-    phone: {
-      type: Number,
-      required: true
-    },
+    role: { type: String, enum: ["user", "admin"] },
     sex: {
       type: String,
-      enum: ["мужской", "женский"]
+      enum: ["мужской", "женский"],
     },
     lastServiceType: {
       type: Schema.Types.ObjectId,
-      ref: "Services"
+      ref: "Services",
     },
-    lastVisitDate: {
-      type: String
-    }
+    name: String,
+    password: String,
+    birthdate: String,
+    image: String,
+    phone: Number,
+    lastVisitDate: String,
   },
   {
-    timestamps: true
+    timestamps: true,
   }
-)
+);
 
-module.exports = model("User", schema)
+module.exports = model("User", schema);

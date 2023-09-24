@@ -5,6 +5,7 @@ import routes from "./routes/routes"
 
 import { HamburgerMenu } from "./components/ui/nav/hamburgerMenu"
 import Modal from "./components/common/modal"
+import { Footer } from "./components/ui/main"
 
 function App() {
   const location = useLocation()
@@ -13,6 +14,7 @@ function App() {
     <div>
       <HamburgerMenu />
       {elements}
+      <Footer />
 
       <ToastContainer />
       <Modal />

@@ -19,8 +19,8 @@ const NavBar = () => {
           </Link>
         </li>
         <li>
-          <Link className={"menu__item"} to={"/services"}>
-            Услуги
+          <Link className={"menu__item"} to={"/booking"}>
+            Записаться
           </Link>
         </li>
         <li>
@@ -29,7 +29,7 @@ const NavBar = () => {
           </Link>
         </li>
         <li>
-          <Link className={"menu__item"} to={"/login"}>
+          <Link className={"menu__item"} to={"auth/login"}>
             Вход/Регистрация
           </Link>
         </li>

@@ -4,7 +4,6 @@ import {
   Benefit,
   Brands,
   ContactUs,
-  Footer,
   Gallery,
   Header,
   Masters,
@@ -36,7 +35,6 @@ const HomePage = () => {
 
         <ContactUs />
       </main>
-      <Footer />
       <Outlet />
     </>
   )

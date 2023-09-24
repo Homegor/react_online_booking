@@ -1,7 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const CheckBoxField = ({ name, value, onChange, children, error }) => {
+const CheckBoxField = ({
+  name,
+  value,
+  onChange,
+  children,
+  error,
+  className
+}) => {
   const handleChange = () => {
     // eslint-disable-next-line
     onChange({ name: name, value: !value })
@@ -12,7 +19,7 @@ const CheckBoxField = ({ name, value, onChange, children, error }) => {
   return (
     <div className='form-check mb-4'>
       <input
-        className={getInputClasses()}
+        className={getInputClasses() || className}
         type='checkbox'
         value=''
         id={name}
@@ -35,7 +42,8 @@ CheckBoxField.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]),
-  error: PropTypes.string
+  error: PropTypes.string,
+  className: PropTypes.string
 }
 
 export default CheckBoxField

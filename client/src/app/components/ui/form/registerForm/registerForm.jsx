@@ -3,7 +3,7 @@ import TextField from "../../../common/form/textField"
 import { validator } from "../../../../utils/validator"
 import validConfig from "./validConfig"
 import RadioField from "../../../common/form/radio"
-import CheckBoxField from "../../../common/form/checkBox"
+import { CheckBoxField } from "../../../common/form/checkBox"
 // import { useHistory } from "react-router-dom"
 
 const RegisterForm = () => {
@@ -14,7 +14,6 @@ const RegisterForm = () => {
     password: "",
     name: "",
     phone: "",
-    date: "",
     sex: "",
     licence: false
   })
@@ -41,6 +40,7 @@ const RegisterForm = () => {
     } catch (error) {
       setErrors(error)
     }
+    console.log(data)
   }
   return (
     <form onSubmit={handleSubmit}>

@@ -1,3 +1,2 @@
-import homePage from "../homePage/homePage"
-
-export default homePage
+import RegisterPage from "./registerPage"
+export default RegisterPage

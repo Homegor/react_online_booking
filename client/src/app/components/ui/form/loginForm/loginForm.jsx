@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import TextField from "../../../common/form/textField"
-import CheckBoxField from "../../../common/form/checkBox"
+import { CheckBoxField } from "../../../common/form/checkBox"
 
 const LoginForm = () => {
   const [data, setData] = useState({ email: "", password: "", stayOn: false })
@@ -10,6 +10,7 @@ const LoginForm = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log(data)
   }
   return (
     <>
@@ -34,7 +35,7 @@ const LoginForm = () => {
           />
         </div>
 
-        <div className='row mb-4'>
+        <div className='row m-4'>
           <div className='col-md-6 d-flex justify-content-center'>
             <div className='form-check mb-3 mb-md-0'>
               <CheckBoxField

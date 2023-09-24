@@ -1,10 +1,6 @@
 import React from "react"
 import ServicesListPage from "../components/pages/servicesListPage"
 import CommentsPage from "../components/pages/commentsPage"
-import RegisterPage from "../components/pages/registerPage"
-import LoginPage from "../components/pages/loginPage/loginPage"
-import Login from "../layout/login"
-import { Navigate } from "react-router-dom"
 import Home from "../layout/home"
 import Profile from "../layout/profile"
 import AboutUserList from "../components/ui/adminProfile/aboutUserList"
@@ -12,14 +8,26 @@ import StatisticsUserList from "../components/ui/adminProfile/statisticsUserList
 import BookingUserList from "../components/ui/adminProfile/bookingUserList/bookingUserList"
 import SettingsUserList from "../components/ui/adminProfile/settingsUserList/settingsUserList"
 import EditUsrList from "../components/ui/adminProfile/editUserList/editUsrList"
+import Login from "../layout/login"
+import { Navigate } from "react-router-dom"
+import LoginPage from "../components/pages/loginPage"
+import RegisterPage from "../components/pages/registerPage"
 
 export const Routes = (isLoggedIn, location) => [
   {
     path: "/",
-    element: <Home />
+    element: <Home />,
+    children: [
+      { path: "", element: "" },
+      { path: "", element: "" },
+      { path: "", element: "" },
+      { path: "", element: "" },
+      { path: "", element: "" },
+      { path: "", element: "" }
+    ]
   },
   {
-    path: "services",
+    path: "booking",
     element: <ServicesListPage />
   },
   {
@@ -27,19 +35,23 @@ export const Routes = (isLoggedIn, location) => [
     element: <CommentsPage />
   },
   {
-    path: "login",
+    path: "auth",
     element: <Login />,
     children: [
-      { path: "", element: <Navigate to={"login"} /> },
+      {
+        path: "",
+        element: <Navigate to={"./login"} />
+      },
       { path: "login", element: <LoginPage /> },
-      { path: "register", element: <RegisterPage /> }
+      { path: "register", element: <RegisterPage /> },
+      { path: "*", element: <Navigate to={"../login"} /> }
     ]
   },
   {
     path: "userPage",
     element: <Profile />,
     children: [
-      { path: "about", element: <AboutUserList /> },
+      { path: "", element: <AboutUserList /> },
       { path: "static", element: <StatisticsUserList /> },
       { path: "booking", element: <BookingUserList /> },
       { path: "settings", element: <SettingsUserList /> },

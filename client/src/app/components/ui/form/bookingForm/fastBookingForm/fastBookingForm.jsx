@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
-import { validator } from "../../../../utils/validator"
+import { validator } from "../../../../../utils/validator"
 import validatorConfig from "./validConfig"
-import TextField from "../../../common/form/textField"
+import TextField from "../../../../common/form/textField"
 
-const FormBooking = () => {
+const FastBookingForm = () => {
   const [data, setData] = useState({ name: "", phone: "+7" })
   const [errors, setErrors] = useState({})
 
@@ -13,19 +13,17 @@ const FormBooking = () => {
   const validate = () => {
     const errors = validator(data, validatorConfig)
     setErrors(errors)
+    return Object.keys(errors).length === 0
   }
   const handleChange = (target) => {
     setData((prevState) => ({
       ...prevState,
       [target.name]: target.value
     }))
-    console.log("target", target)
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (Object(errors).length !== 0) return
-    console.log("e", data)
-    console.log("hi")
+    console.log(data)
   }
 
   return (
@@ -69,4 +67,4 @@ const FormBooking = () => {
   )
 }
 
-export default FormBooking
+export default FastBookingForm

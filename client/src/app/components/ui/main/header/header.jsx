@@ -4,6 +4,7 @@ import Icons from "../../../common/icons"
 import vk from "../../../../assets/img/vk.png"
 import yt from "../../../../assets/img/yt.png"
 import inst from "../../../../assets/img/inst.png"
+import Button from "../../../common/form/button"
 
 const Header = () => {
   return (
@@ -15,18 +16,7 @@ const Header = () => {
               Создай свой образ <br /> вместе с нами
             </p>
             <p className='hero__subtitle'>Идеальный образ за 60 минут</p>
-            <button
-              className='hero__btn btn'
-              data-bs-toggle='modal'
-              data-bs-target='#exampleModal'
-            >
-              Записаться онлайн
-            </button>
-            {/*            <ButtonsBooking
-              onChange={handleChange}
-              className={"hero__btn"}
-              name={"Записаться онлайн"}
-            />*/}
+            <Button className={"hero__btn btn"} name={"Записаться онлайн"} />
           </div>
           <div className='hero__media'>
             <img className='hero__girl' src={girl} alt='фото' />

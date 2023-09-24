@@ -1,30 +1,23 @@
 import React, { useState } from "react"
-import PropTypes from "prop-types"
-import FormBooking from "../../ui/form/bookingForm"
+import FastBookingForm from "../../ui/form/bookingForm/fastBookingForm"
 
-const Modal = ({ children, visible, setVisible }) => {
-  const [isOpenModal, setIsOpenModal] = useState(false)
+const Modal = () => {
+  const [isOpen, setOpen] = useState(false)
 
   const toggleModal = () => {
-    setIsOpenModal((prevState) => !prevState)
+    setOpen((prevState) => !prevState)
   }
 
   return (
     <div
-      className={"modal " + (isOpenModal === true ? "active" : "")}
+      className={"modal " + (isOpen === true ? "active" : "")}
       onClick={toggleModal}
     >
       <div className={"modalContent"} onClick={(e) => e.stopPropagation()}>
-        <FormBooking />
+        <FastBookingForm />
       </div>
     </div>
   )
-}
-
-Modal.propTypes = {
-  children: PropTypes.object,
-  visible: PropTypes.func,
-  setVisible: PropTypes.func
 }
 
 export default Modal

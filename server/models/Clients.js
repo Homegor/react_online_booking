@@ -9,7 +9,7 @@ const schema = new Schema(
     },
     sex: {
       type: String,
-      enum: ["мужской", "женский"],
+      enum: ["male", "female"],
     },
     name: String,
     password: String,

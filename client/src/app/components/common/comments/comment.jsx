@@ -1,13 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const Comment = ({
-  content,
-  created_at: created,
-  _id: id,
-  userId,
-  onRemove
-}) => {
+const Comment = ({ content, created_at: created, id, userId, onRemove }) => {
   return (
     <section>
       <div className='bg-light card-body mb-3'>
@@ -51,7 +45,7 @@ const Comment = ({
 Comment.propTypes = {
   content: PropTypes.string,
   created_at: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  _id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   userId: PropTypes.string,
   onRemove: PropTypes.func
 }

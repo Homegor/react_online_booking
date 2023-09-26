@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 
 import { orderBy } from "lodash"
-import AddCommentsForm from "../../ui/form/comments/addCommentsForm"
-import CommentList from "../../ui/form/comments/commentList"
 import Loader from "../../common/loader/loader"
+import AddCommentsForm from "../../common/comments/addCommentsForm"
+import CommentList from "../../common/comments/commentList"
 
 const CommentsPage = () => {
   const [comments] = useState()
@@ -26,10 +26,9 @@ const CommentsPage = () => {
         </div>
       </div>
       {sortedComments.length > 0 && (
-        <div className='card mb-3'>
+        <div className='card mb-3 hero mt-0'>
           <div className='card-body '>
-            <h2>Comments</h2>
-            <hr />
+            <h2>Спасибо за отзывы</h2>
             {isLoading ? (
               <CommentList
                 comments={sortedComments}

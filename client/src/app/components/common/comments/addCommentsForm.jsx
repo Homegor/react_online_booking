@@ -1,26 +1,9 @@
 import React, { useState } from "react"
-import { validator } from "../../../../utils/validator"
 import PropTypes from "prop-types"
-import TextAreaField from "../../../common/form/textAreaField"
+import TextAreaField from "../form/textAreaField"
 
 const AddCommentsForm = ({ onSubmit }) => {
   const [data, setData] = useState({})
-  const [errors, setErrors] = useState({})
-
-  console.log(data)
-  const validatorConfig = {
-    content: {
-      isRequired: {
-        message: "Сообщение не может быть пустым"
-      }
-    }
-  }
-  const validate = () => {
-    const errors = validator(data, validatorConfig)
-
-    setErrors(errors)
-    return Object.keys(errors).length === 0
-  }
 
   const handleChange = (target) => {
     setData((prevState) => ({
@@ -31,14 +14,11 @@ const AddCommentsForm = ({ onSubmit }) => {
 
   const clearForm = () => {
     setData({})
-    setErrors({})
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const isValid = validate()
-    if (!isValid) return
-    // onSubmit(data)
+    onSubmit(data)
     clearForm()
   }
   return (
@@ -49,8 +29,6 @@ const AddCommentsForm = ({ onSubmit }) => {
           value={data.content || ""}
           onChange={handleChange}
           name='content'
-          label='Отзыв'
-          error={errors.content}
         />
         <div className='d-flex justify-content-end'>
           <button className='btn btn-primary'>Опубликовать</button>

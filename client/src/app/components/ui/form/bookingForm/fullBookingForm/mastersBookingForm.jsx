@@ -6,7 +6,7 @@ import girl3 from "../../../../../assets/img/girl_3.png"
 import girl4 from "../../../../../assets/img/girl_4.png"
 // import PropTypes from "prop-types"
 
-const MastersBookingForm = (props) => {
+const MastersBookingForm = () => {
   const [master, setMaster] = useState({
     ki: false,
     kj: false,

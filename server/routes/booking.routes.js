@@ -41,7 +41,7 @@ router.delete("/:bookingId", auth, async (req, res) => {
 
     if (currentUser || isAdmin) {
       // todo: НЕ НРАВИТЬСЯ remove
-      await removedBooking.remove();
+      await removedBooking.deleteOne();
       return res.send(null);
     } else {
       res.status(401).json({ message: "Unauthorized" });

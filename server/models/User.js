@@ -11,7 +11,7 @@ const schema = new Schema(
     },
     role: { type: String, enum: ["user", "admin", "master"] },
     image: String,
-    phone: String,
+    phone: Number,
   },
   {
     timestamps: true,

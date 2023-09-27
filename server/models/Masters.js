@@ -6,7 +6,7 @@ const schema = new Schema(
     image: String,
     experience: Number,
     birthdate: String,
-    categoriesId: { type: Schema.Types.ObjectId, ref: "Categories" },
+    categories: String,
   },
   {
     timestamps: true,

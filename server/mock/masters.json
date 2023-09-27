@@ -1,43 +1,42 @@
 [
   {
-    "id": "worker_01",
+    "id": "sdlkghsflkjgh9853",
     "name": "Иван Петров",
-    "image": "url",
+    "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Boo",
     "experience": 5,
     "birthdate": "1995-05-25",
     "categoriesId": [
-      "67rd54357ca3ee436357",
-      "67rds324ca3ee"
+      "Маникюр и педикюр"
     ]
   },
   {
-    "id": "worker_02",
+    "id": "akljfhkcjvnf85",
     "name": "Анна Сидорова",
-    "image": "url",
+    "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Bella",
     "experience": 3,
     "birthdate": "1995-05-25",
-    "categoriesId": [
-      "67rd234ca3ee1435426"
+    "categories": [
+      "Косметология"
     ]
   },
   {
-    "id": "worker_03",
+    "id": "workejvclskcgje9530r03",
     "name": "Мария Иванова",
-    "image": "url",
+    "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Sam",
     "experience": 7,
     "birthdate": "1988-09-03",
     "servicesId": [
-      "67r4324dca3ee"
+      "Макияж"
     ]
   },
   {
-    "id": "worker_04",
+    "id": "ncvkzxmfvnslt85950",
     "name": "Алексей Николаев",
-    "image": "url",
+    "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Chester",
     "experience": 4,
     "birthdate": "1993-11-12",
     "servicesId": [
-      "67rd23465ca3eeb7f"
+      "Брови и ресницы"
     ]
   }
 ]

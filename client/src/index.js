@@ -2,11 +2,12 @@ import React from "react"
 import { BrowserRouter } from "react-router-dom"
 import ReactDOM from "react-dom/client"
 
-import "bootstrap/dist/css/bootstrap.css"
 import "./app/scss/style.scss"
 
+import "bootstrap/dist/css/bootstrap.css"
+
 import App from "./app/App"
-import { createStore } from "./app/store"
+import { createStore } from "./app/store/createStore"
 import { Provider } from "react-redux"
 
 const store = createStore()

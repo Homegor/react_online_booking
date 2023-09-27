@@ -1,13 +1,16 @@
-const { Schema, model, SchemaTypes } = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const schema = new Schema(
   {
     name: String,
-    service: { type: SchemaTypes.ObjectId, ref: "Masters" },
+    image: String,
+    experience: Number,
+    birthdate: String,
+    categoriesId: { type: Schema.Types.ObjectId, ref: "Categories" },
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = model("Booking", schema);
+module.exports = model("Masters", schema);

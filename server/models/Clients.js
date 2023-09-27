@@ -2,14 +2,17 @@ const { Schema, model } = require("mongoose");
 
 const schema = new Schema(
   {
-    name: String,
-    password: String,
     email: {
       type: String,
       required: true,
       unique: true,
     },
-    role: { type: String, enum: ["user", "admin", "master"] },
+    sex: {
+      type: String,
+      enum: ["male", "female"],
+    },
+    name: String,
+    password: String,
     image: String,
     phone: String,
   },
@@ -18,4 +21,4 @@ const schema = new Schema(
   }
 );
 
-module.exports = model("User", schema);
+module.exports = model("Clients", schema);

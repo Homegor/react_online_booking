@@ -1,10 +1,11 @@
-const { Schema, model, SchemaTypes } = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const schema = new Schema(
   {
-    serviceId: { type: SchemaTypes.ObjectId, ref: "Masters" },
-    masterId: { type: SchemaTypes.ObjectId, ref: "Categories" },
-    visitDate: Date,
+    userId: { type: Schema.Types.ObjectId, ref: "User" },
+    serviceId: { type: Schema.Types.ObjectId, ref: "Categories" },
+    masterId: { type: Schema.Types.ObjectId, ref: "Masters" },
+    visitDateId: Date,
   },
   {
     timestamps: true,

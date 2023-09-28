@@ -4,10 +4,10 @@ import { validator } from "../../../../utils/validator"
 import validConfig from "./validConfig"
 import RadioField from "../../../common/form/radio"
 import { CheckBoxField } from "../../../common/form/checkBox"
-// import { useHistory } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { signUp } from "../../../../store/slices/userSlice"
 
 const RegisterForm = () => {
-  // const history = useHistory()
   const [errors, setErrors] = useState({})
   const [data, setData] = useState({
     email: "",
@@ -17,6 +17,8 @@ const RegisterForm = () => {
     sex: "",
     licence: false
   })
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     validate()
@@ -31,16 +33,14 @@ const RegisterForm = () => {
   const handleChange = (target) => {
     setData((prevState) => ({ ...prevState, [target.name]: target.value }))
   }
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     const isValid = validate()
     if (!isValid) return
-    try {
-      // history.push("/")
-    } catch (error) {
-      setErrors(error)
+    const newData = {
+      ...data
     }
-    console.log(data)
+    dispatch(signUp(newData))
   }
   return (
     <form onSubmit={handleSubmit}>

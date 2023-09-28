@@ -29,7 +29,7 @@ const usersSlice = createSlice({
     usersRequested: (state) => {
       state.isLoading = true
     },
-    usersReceved: (state, action) => {
+    usersReceived: (state, action) => {
       state.entities = action.payload
       state.dataLoaded = true
       state.isLoading = false
@@ -56,7 +56,7 @@ const usersSlice = createSlice({
     },
     userUpdateSuccessed: (state, action) => {
       state.entities[
-        state.entities.findIndex((u) => u._id === action.payload._id)
+        state.entities.findIndex((u) => u.id === action.payload.id)
       ] = action.payload
     },
     authRequested: (state) => {
@@ -68,7 +68,7 @@ const usersSlice = createSlice({
 const { reducer: usersReducer, actions } = usersSlice
 const {
   usersRequested,
-  usersReceved,
+  usersReceived,
   usersRequestFiled,
   authRequestFailed,
   authRequestSuccess,
@@ -80,7 +80,7 @@ const authRequested = createAction("users/authRequested")
 const userUpdateFailed = createAction("users/userUpdateFailed")
 const userUpdateRequested = createAction("users/userUpdateRequested")
 
-export const login =
+export const signIn =
   ({ payload, redirect }) =>
   async (dispatch) => {
     const { email, password } = payload
@@ -107,7 +107,7 @@ export const signUp = (payload) => async (dispatch) => {
     const data = await authService.register(payload)
     localStorageService.setTokens(data)
     dispatch(authRequestSuccess({ userId: data.userId }))
-    history.push("/users")
+    history.push("/user")
   } catch (error) {
     dispatch(authRequestFailed(error.message))
   }
@@ -121,7 +121,7 @@ export const loadUsersList = () => async (dispatch) => {
   dispatch(usersRequested())
   try {
     const { content } = await userService.get()
-    dispatch(usersReceved(content))
+    dispatch(usersReceived(content))
   } catch (error) {
     dispatch(usersRequestFiled(error.message))
   }
@@ -131,7 +131,7 @@ export const updateUser = (payload) => async (dispatch) => {
   try {
     const { content } = await userService.update(payload)
     dispatch(userUpdateSuccessed(content))
-    history.push(`/users/${content._id}`)
+    history.push(`/users/${content.id}`)
   } catch (error) {
     dispatch(userUpdateFailed(error.message))
   }
@@ -140,12 +140,12 @@ export const updateUser = (payload) => async (dispatch) => {
 export const getUsersList = () => (state) => state.users.entities
 export const getCurrentUserData = () => (state) => {
   return state.users.entities
-    ? state.users.entities.find((u) => u._id === state.users.auth.userId)
+    ? state.users.entities.find((u) => u.id === state.users.auth.userId)
     : null
 }
 export const getUserById = (userId) => (state) => {
   if (state.users.entities) {
-    return state.users.entities.find((u) => u._id === userId)
+    return state.users.entities.find((u) => u.id === userId)
   }
 }
 

@@ -22,7 +22,7 @@ router
     try {
       const newBooking = await Booking.create({
         ...req.body,
-        userId: req.user.id,
+        userId: req.userId.id,
       });
       res.status(201).send(newBooking);
     } catch (e) {
@@ -35,36 +35,12 @@ router.delete("/:bookingId", auth, async (req, res) => {
   try {
     const { bookingId } = req.params;
     const removedBooking = await Booking.findById(bookingId);
-    // todo: НЕ НРАВИТЬСЯ userId
     const currentUser = removedBooking.userId.toSigned() === req.user.id;
     const isAdmin = req.userRole === "admin" || "master";
 
     if (currentUser || isAdmin) {
-      // todo: НЕ НРАВИТЬСЯ remove
       await removedBooking.deleteOne();
       return res.send(null);
-    } else {
-      res.status(401).json({ message: "Unauthorized" });
-    }
-  } catch (e) {
-    res.status(500).json({
-      message: "На сервере произошла ошибка. Попробуйте позже",
-    });
-  }
-});
-router.patch("/:bookingId", auth, async (req, res) => {
-  try {
-    const { bookingId } = req.params;
-
-    if (bookingId === req.user.id) {
-      const updateBooking = await Booking.findByIdAndUpdate(
-        bookingId,
-        req.body,
-        {
-          new: true,
-        }
-      );
-      res.send(updateBooking);
     } else {
       res.status(401).json({ message: "Unauthorized" });
     }

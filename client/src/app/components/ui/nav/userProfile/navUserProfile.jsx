@@ -1,7 +1,8 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 const NavUserProfile = () => {
+  const { userId } = useParams()
   const isAdmin = false
 
   return (
@@ -10,14 +11,14 @@ const NavUserProfile = () => {
         {!isAdmin ? (
           <Link
             className='menu__item user-room__menu-item '
-            to={"/userPage/about"}
+            to={`/userPage/${userId}/about`}
           >
             Все пользователи АДМИН
           </Link>
         ) : (
           <Link
             className='menu__item user-room__menu-item '
-            to={"/userPage/about"}
+            to={`/userPage/${userId}/about`}
           >
             Пользователь НЕ Админ
           </Link>
@@ -26,7 +27,7 @@ const NavUserProfile = () => {
       <li>
         <Link
           className='menu__item user-room__menu-item'
-          to={"/userPage/static"}
+          to={`/userPage/${userId}/static`}
         >
           Статистика
         </Link>
@@ -34,7 +35,7 @@ const NavUserProfile = () => {
       <li>
         <Link
           className='menu__item user-room__menu-item'
-          to={"/userPage/booking"}
+          to={`/userPage/${userId}/booking`}
         >
           Записи
         </Link>
@@ -42,13 +43,16 @@ const NavUserProfile = () => {
       <li>
         <Link
           className='menu__item user-room__menu-item'
-          to={"/userPage/settings"}
+          to={`/userPage/${userId}/settings`}
         >
           Настройки
         </Link>
       </li>
       <li>
-        <Link className='menu__item user-room__menu-item' to={"/userPage/edit"}>
+        <Link
+          className='menu__item user-room__menu-item'
+          to={`/userPage/${userId}/edit`}
+        >
           Редактировать
         </Link>
       </li>

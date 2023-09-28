@@ -3,8 +3,8 @@ import httpService from "./http.service"
 const mastersEndPoint = "/masters"
 
 const mastersService = {
-  fetchAll: async () => {
-    const { data } = await httpService.get(mastersEndPoint)
+  getMasters: async () => {
+    const { data } = await httpService.post(mastersEndPoint)
     return data
   }
 }

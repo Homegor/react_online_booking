@@ -1,16 +1,27 @@
 import React, { useState } from "react"
 import TextField from "../../../common/form/textField"
 import { CheckBoxField } from "../../../common/form/checkBox"
+import history from "../../../../utils/history"
+import { useDispatch, useSelector } from "react-redux"
+import { getAuthErrors, signIn } from "../../../../store/slices/userSlice"
 
 const LoginForm = () => {
   const [data, setData] = useState({ email: "", password: "", stayOn: false })
+
+  const loginError = useSelector(getAuthErrors())
+
+  const dispatch = useDispatch()
 
   const handleChange = (target) => {
     setData((prevState) => ({ ...prevState, [target.name]: target.value }))
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(data)
+    const redirect = history.location.state
+      ? history.location.state.from.pathname
+      : "/"
+
+    dispatch(signIn({ payload: data, redirect }))
   }
   return (
     <>
@@ -46,6 +57,7 @@ const LoginForm = () => {
                 Оставаться в системе
               </CheckBoxField>
             </div>
+            {loginError && <p className='text-danger'>{loginError}</p>}
           </div>
 
           <div className='col-md-6 d-flex justify-content-center'>

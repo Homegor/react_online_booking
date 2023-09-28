@@ -87,12 +87,18 @@ section {
   font-weight: $fw-500;
   &:hover {
     transition: 0.5s background-color;
-    background: darken($orange, 5%);
+    background: darken($orange, 10%);
     cursor: pointer;
     color: $white;
   }
   &:focus {
     box-shadow: 0 0 0 0.15rem rgb(233 85 40 / 35%);
+  }
+  &:first-child:active{
+    transition: 0.5s background-color;
+    background: lighten($orange, 15%);
+    cursor: pointer;
+    color: $white;
   }
 }
 :not(.btn-check) + .btn:active {
@@ -844,17 +850,24 @@ section {
   top: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: 10s;
 }
 .modalContent {
   padding: 25px;
   background: white;
   border-radius: 16px;
   min-width: 250px;
+  transition: 10s;
+
 }
 .modal.active {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 1;
+  transition: 10s;
+
 }
 // End Modal
 

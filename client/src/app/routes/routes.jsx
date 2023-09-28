@@ -9,7 +9,7 @@ import BookingUserList from "../components/ui/adminProfile/bookingUserList/booki
 import SettingsUserList from "../components/ui/adminProfile/settingsUserList/settingsUserList"
 import EditUsrList from "../components/ui/adminProfile/editUserList/editUsrList"
 import Login from "../layout/login"
-import { Navigate } from "react-router-dom"
+import { Navigate, Outlet } from "react-router-dom"
 import LoginPage from "../components/pages/loginPage"
 import RegisterPage from "../components/pages/registerPage"
 
@@ -51,12 +51,19 @@ export const Routes = (isLoggedIn, location) => [
     path: "userPage",
     element: <Profile />,
     children: [
-      { path: "", element: <AboutUserList /> },
-      { path: "static", element: <StatisticsUserList /> },
-      { path: "booking", element: <BookingUserList /> },
-      { path: "settings", element: <SettingsUserList /> },
-      { path: "edit", element: <EditUsrList /> },
-      { path: "*", element: <AboutUserList /> }
+      { index: true, element: <Navigate to={":userId"} /> },
+      {
+        path: ":userId",
+        element: <Outlet />,
+        children: [
+          { path: "", element: <AboutUserList /> },
+          { path: "static", element: <StatisticsUserList /> },
+          { path: "booking", element: <BookingUserList /> },
+          { path: "settings", element: <SettingsUserList /> },
+          { path: "edit", element: <EditUsrList /> },
+          { path: "*", element: <AboutUserList /> }
+        ]
+      }
     ]
   }
 ]

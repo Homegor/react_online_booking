@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react"
 import { validator } from "../../../../../utils/validator"
 import validatorConfig from "./validConfig"
 import TextField from "../../../../common/form/textField"
+import { useDispatch } from "react-redux"
+import { createBooking } from "../../../../../store/slices/bookingSlice"
 
 const FastBookingForm = () => {
   const [data, setData] = useState({ name: "", phone: "+7" })
   const [errors, setErrors] = useState({})
+  const dispatch = useDispatch()
 
   useEffect(() => {
     validate()
@@ -23,7 +26,10 @@ const FastBookingForm = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(data)
+    const newData = {
+      ...data
+    }
+    dispatch(createBooking(newData))
   }
 
   return (

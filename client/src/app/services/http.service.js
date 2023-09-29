@@ -25,7 +25,7 @@ http.interceptors.request.use(
           refreshToken: data.refresh_token,
           idToken: data.id_token,
           expiresIn: data.expires_in,
-          localId: data.user_id
+          userId: data.user_id
         })
       }
       const accessToken = localStorageService.getAccessToken()
@@ -53,7 +53,7 @@ http.interceptors.request.use(
 )
 
 function transformData(data) {
-  return data && !data._id
+  return data && !data.id
     ? Object.keys(data).map((key) => ({
         ...data[key]
       }))

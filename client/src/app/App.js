@@ -6,18 +6,20 @@ import routes from "./routes/routes"
 import { HamburgerMenu } from "./components/ui/nav/hamburgerMenu"
 import Modal from "./components/common/modal"
 import { Footer } from "./components/ui/main"
+import AppLoader from "./components/ui/hos/appLoader"
 
 function App() {
   const location = useLocation()
   const elements = useRoutes(routes(location))
   return (
     <div>
-      <HamburgerMenu />
-      {elements}
-      <Footer />
-
+      <AppLoader>
+        <HamburgerMenu />
+        {elements}
+        <Footer />
+        <Modal />
+      </AppLoader>
       <ToastContainer />
-      <Modal />
     </div>
   )
 }

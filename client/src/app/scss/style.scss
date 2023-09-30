@@ -831,6 +831,7 @@ section {
   border-radius: 50%;
   border: 3px dashed $orange;
   animation: rotate 1s infinite linear;
+  margin: 20px;
 }
 @keyframes rotate {
   from {

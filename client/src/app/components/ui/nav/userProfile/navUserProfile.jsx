@@ -1,24 +1,31 @@
 import React from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { getCurrentUserData, logOut } from "../../../../store/slices/userSlice"
 
 const NavUserProfile = () => {
-  const { userId } = useParams()
+  const currentUser = useSelector(getCurrentUserData())
+  const dispatch = useDispatch()
+
   const isAdmin = false
 
+  const handleLogOut = () => {
+    dispatch(logOut())
+  }
   return (
     <ul className='list-group user-room__Navbar list-group-flush'>
       <li>
         {!isAdmin ? (
           <Link
             className='menu__item user-room__menu-item '
-            to={`/userPage/${userId}/about`}
+            to={`/userPage/${currentUser}/about`}
           >
             Все пользователи АДМИН
           </Link>
         ) : (
           <Link
             className='menu__item user-room__menu-item '
-            to={`/userPage/${userId}/about`}
+            to={`/userPage/${currentUser}/about`}
           >
             Пользователь НЕ Админ
           </Link>
@@ -27,7 +34,7 @@ const NavUserProfile = () => {
       <li>
         <Link
           className='menu__item user-room__menu-item'
-          to={`/userPage/${userId}/static`}
+          to={`/userPage/${currentUser}/static`}
         >
           Статистика
         </Link>
@@ -35,7 +42,7 @@ const NavUserProfile = () => {
       <li>
         <Link
           className='menu__item user-room__menu-item'
-          to={`/userPage/${userId}/booking`}
+          to={`/userPage/${currentUser}/booking`}
         >
           Записи
         </Link>
@@ -43,21 +50,31 @@ const NavUserProfile = () => {
       <li>
         <Link
           className='menu__item user-room__menu-item'
-          to={`/userPage/${userId}/settings`}
+          to={`/userPage/${currentUser}/settings`}
         >
           Настройки
+        </Link>
+        <Link
+          className='menu__item user-room__menu-item'
+          to={`/userPage/${currentUser}/comments`}
+        >
+          Оставить отзыв
         </Link>
       </li>
       <li>
         <Link
           className='menu__item user-room__menu-item'
-          to={`/userPage/${userId}/edit`}
+          to={`/userPage/${currentUser}/edit`}
         >
           Редактировать
         </Link>
       </li>
       <li>
-        <Link className='menu__item user-room__menu-item' to={"/"}>
+        <Link
+          className='menu__item user-room__menu-item'
+          onClick={handleLogOut}
+          to={"/"}
+        >
           Выйти
         </Link>
       </li>

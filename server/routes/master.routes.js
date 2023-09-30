@@ -16,8 +16,9 @@ router.get("/", async (req, res) => {
 router.patch("/:mastersId", auth, async (req, res) => {
   try {
     const { mastersId } = req.params;
+    console.log(mastersId);
 
-    if (mastersId === req.user.id) {
+    if (mastersId === req.user._id) {
       const updateMastersId = await Masters.findByIdAndUpdate(
         mastersId,
         req.body,

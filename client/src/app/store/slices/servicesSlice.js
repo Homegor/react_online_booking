@@ -24,7 +24,7 @@ const servicesSlice = createSlice({
       state.entities.push(action.payload)
     },
     servicesRemoved: (state, action) => {
-      state.entities = state.entities.filter((s) => s.id !== action.payload)
+      state.entities = state.entities.filter((s) => s._id !== action.payload)
     }
   }
 })

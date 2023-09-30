@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
 import categoriesService from "../../services/categories.service"
-import isDate from "../../utils/isDate"
 
 const categoriesSlice = createSlice({
   name: "categories",
@@ -31,10 +30,7 @@ const { categoriesRequested, categoriesReceived, categoriesRequestFiled } =
   actions
 
 export const loadCategoriesList = (id) => async (dispatch, getState) => {
-  const { lastFetch } = getState().categories
-  if (isDate(lastFetch)) {
-    dispatch(categoriesRequested())
-  }
+  dispatch(categoriesRequested())
   try {
     const { content } = await categoriesService.getCategories(id)
     dispatch(categoriesReceived(content))
@@ -47,7 +43,7 @@ export const getCategories = () => (state) => state.categories.entities
 export const getCategoriesLoading = () => (state) => state.categories.isLoading
 export const getCategoriesById = (id) => (state) => {
   if (state.categories.entities) {
-    return state.categories.entities.find((c) => c.id === id)
+    return state.categories.entities.find((c) => c._id === id)
   }
 }
 

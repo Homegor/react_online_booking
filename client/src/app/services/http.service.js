@@ -1,11 +1,12 @@
 import axios from "axios"
 import { toast } from "react-toastify"
 import configFile from "../config.json"
-import localStorageService from "./localStorage.service"
 import authService from "./auth.service"
 
+import localStorageService from "./localStorage.service"
+
 const http = axios.create({
-  baseURL: configFile.apiEndPoint
+  baseURL: configFile.apiEndpoint
 })
 
 http.interceptors.request.use(
@@ -23,7 +24,7 @@ http.interceptors.request.use(
 
         localStorageService.setTokens({
           refreshToken: data.refresh_token,
-          idToken: data.id_token,
+          idToken: data._id_token,
           expiresIn: data.expires_in,
           userId: data.user_id
         })
@@ -53,7 +54,7 @@ http.interceptors.request.use(
 )
 
 function transformData(data) {
-  return data && !data.id
+  return data && !data._id
     ? Object.keys(data).map((key) => ({
         ...data[key]
       }))
@@ -76,7 +77,7 @@ http.interceptors.response.use(
 
     if (!expectedErrors) {
       console.log(error)
-      toast.error("Something was wrong. Try it later")
+      toast.error("Somthing was wrong. Try it later")
     }
     return Promise.reject(error)
   }
@@ -88,5 +89,4 @@ const httpService = {
   delete: http.delete,
   patch: http.patch
 }
-
 export default httpService

@@ -1,27 +1,28 @@
 import React, { useState } from "react"
 import TextField from "../../../common/form/textField"
 import { CheckBoxField } from "../../../common/form/checkBox"
-import history from "../../../../utils/history"
+import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { getAuthErrors, signIn } from "../../../../store/slices/userSlice"
+import {
+  getAuthErrors,
+  getCurrentUserData,
+  signIn
+} from "../../../../store/slices/userSlice"
 
 const LoginForm = () => {
   const [data, setData] = useState({ email: "", password: "", stayOn: false })
-
+  const navigate = useNavigate()
   const loginError = useSelector(getAuthErrors())
-
   const dispatch = useDispatch()
+  const currentUser = useSelector(getCurrentUserData())
 
   const handleChange = (target) => {
     setData((prevState) => ({ ...prevState, [target.name]: target.value }))
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    const redirect = history.location.state
-      ? history.location.state.from.pathname
-      : "/"
-
-    dispatch(signIn({ payload: data, redirect }))
+    dispatch(signIn({ payload: data }))
+    navigate(`/userPage/${currentUser}/about`)
   }
   return (
     <>

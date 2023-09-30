@@ -17,7 +17,7 @@ router.post("/", auth, async (req, res) => {
   try {
     const newServices = await Services.create({
       ...req.body,
-      userId: req.userId.id,
+      userId: req.userId._id,
     });
     res.status(201).send(newServices);
   } catch (e) {
@@ -30,7 +30,7 @@ router.delete("/:serviceId", auth, async (req, res) => {
   try {
     const { serviceId } = req.params;
     const removedService = await Services.findById(serviceId);
-    const currentUser = removedService.userId.toSigned() === req.user.id;
+    const currentUser = removedService.userId.toSigned() === req.user._id;
     const isAdmin = req.userRole === "admin";
 
     if (currentUser || isAdmin) {
@@ -49,7 +49,7 @@ router.patch("/:serviceId", auth, async (req, res) => {
   try {
     const { serviceId } = req.params;
 
-    if (serviceId === req.user.id) {
+    if (serviceId === req.user._id) {
       const updateServices = await Services.findByIdAndUpdate(
         serviceId,
         req.body,

@@ -16,11 +16,11 @@ router.get("/", async (req, res) => {
     });
   }
 });
-router.post("/", async (req, res) => {
+router.post("/booking", async (req, res) => {
   try {
     const newBooking = await Booking.create({
       ...req.body,
-      bookingId: req.booking.id,
+      bookingId: req.booking._id,
     });
     console.log(newBooking);
     res.status(201).send(newBooking);
@@ -34,7 +34,7 @@ router.delete("/:bookingId", auth, async (req, res) => {
   try {
     const { bookingId } = req.params;
     const removedBooking = await Booking.findById(bookingId);
-    const currentUser = removedBooking.userId.toSigned() === req.user.id;
+    const currentUser = removedBooking.userId.toSigned() === req.user._id;
     const isAdmin = req.userRole === "admin" || "master";
 
     if (currentUser || isAdmin) {

@@ -54,9 +54,9 @@ const usersSlice = createSlice({
       state.auth = null
       state.dataLoaded = false
     },
-    userUpdateSuccessed: (state, action) => {
+    userUpdateSuccess: (state, action) => {
       state.entities[
-        state.entities.findIndex((u) => u.id === action.payload.id)
+        state.entities.findIndex((u) => u._id === action.payload._id)
       ] = action.payload
     },
     authRequested: (state) => {
@@ -73,7 +73,7 @@ const {
   authRequestFailed,
   authRequestSuccess,
   userLoggedOut,
-  userUpdateSuccessed
+  userUpdateSuccess
 } = actions
 
 const authRequested = createAction("users/authRequested")
@@ -89,7 +89,7 @@ export const signIn =
       const data = await authService.login({ email, password })
       localStorageService.setTokens(data)
       dispatch(authRequestSuccess({ userId: data.userId }))
-      history.push(redirect || "/")
+      history.push(redirect || "/userPage")
     } catch (error) {
       const { code, message } = error.response.data.error
       if (code === 400) {
@@ -130,22 +130,24 @@ export const updateUser = (payload) => async (dispatch) => {
   dispatch(userUpdateRequested())
   try {
     const { content } = await userService.update(payload)
-    dispatch(userUpdateSuccessed(content))
-    history.push(`/users/${content.id}`)
+    dispatch(userUpdateSuccess(content))
+    history.push(`/users/${content._id}`)
   } catch (error) {
     dispatch(userUpdateFailed(error.message))
   }
 }
 
 export const getUsersList = () => (state) => state.users.entities
+
 export const getCurrentUserData = () => (state) => {
   return state.users.entities
-    ? state.users.entities.find((u) => u.id === state.users.auth.userId)
+    ? state.users.entities.find((u) => u._id === state.users.auth.userId)
     : null
 }
 export const getUserById = (userId) => (state) => {
+  console.log(userId)
   if (state.users.entities) {
-    return state.users.entities.find((u) => u.id === userId)
+    return state.users.entities.find((u) => u._id === userId)
   }
 }
 

@@ -1,6 +1,6 @@
 [
   {
-    "id": "sdlkghsflkjgh9853",
+    "_id": "sdlkghsflkjgh9853",
     "name": "Иван Петров",
     "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Boo",
     "experience": 5,
@@ -10,7 +10,7 @@
     ]
   },
   {
-    "id": "akljfhkcjvnf85",
+    "_id": "akljfhkcjvnf85",
     "name": "Анна Сидорова",
     "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Bella",
     "experience": 3,
@@ -20,7 +20,7 @@
     ]
   },
   {
-    "id": "workejvclskcgje9530r03",
+    "_id": "workejvclskcgje9530r03",
     "name": "Мария Иванова",
     "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Sam",
     "experience": 7,
@@ -30,7 +30,7 @@
     ]
   },
   {
-    "id": "ncvkzxmfvnslt85950",
+    "_id": "ncvkzxmfvnslt85950",
     "name": "Алексей Николаев",
     "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Chester",
     "experience": 4,

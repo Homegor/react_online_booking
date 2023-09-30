@@ -6,6 +6,7 @@ import RadioField from "../../../common/form/radio"
 import { CheckBoxField } from "../../../common/form/checkBox"
 import { useDispatch } from "react-redux"
 import { signUp } from "../../../../store/slices/userSlice"
+import { useNavigate } from "react-router-dom"
 
 const RegisterForm = () => {
   const [errors, setErrors] = useState({})
@@ -19,6 +20,7 @@ const RegisterForm = () => {
   })
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   useEffect(() => {
     validate()
@@ -40,6 +42,7 @@ const RegisterForm = () => {
     const newData = {
       ...data
     }
+    navigate("/")
     dispatch(signUp(newData))
   }
   return (

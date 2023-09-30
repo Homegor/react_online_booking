@@ -34,21 +34,24 @@ const Tabs = () => {
     e.preventDefault()
     setIsActive(e.target)
   }
+  console.log(tabsLink)
+  console.log(isActive)
+  console.log(handelChange)
 
   return (
     <>
       <nav className='tabs__navigation'>
         <ul className='tabs__container'>
-          {tabsLink.map((l) => (
+          {/*          {tabsLink.map((l) => (
             <li
-              key={l.id}
+              key={l._id}
               onClick={handelChange}
               type={"button"}
               className={`tabs__link ${!isActive ? "active" : ""}`}
             >
               {l.title}
             </li>
-          ))}
+          ))}*/}
         </ul>
       </nav>
       <div className='name name__active'>

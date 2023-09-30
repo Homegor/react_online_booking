@@ -12,7 +12,7 @@ const servicesService = {
     return data
   },
   removeServices: async (serviceId) => {
-    const { data } = await httpService.patch(servicesEndPoint + serviceId.id)
+    const { data } = await httpService.patch(servicesEndPoint + serviceId._id)
     return data
   }
 }

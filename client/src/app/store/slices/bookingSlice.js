@@ -39,7 +39,7 @@ const bookingSlice = createSlice({
     },
     bookingRemoved: (state, action) => {
       state.entities = state.entities.filter(
-        (booking) => booking.id !== action.payload
+        (booking) => booking._id !== action.payload
       )
       state.error = null
     }

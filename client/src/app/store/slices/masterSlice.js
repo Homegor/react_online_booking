@@ -40,7 +40,7 @@ export const getMasters = () => (state) => state.masters.entities
 export const getMastersLoadingStatus = () => (state) => state.masters.isLoading
 export const getMastersById = (id) => (state) => {
   if (state.masters.entities) {
-    return state.masters.entities.find((m) => m.id === id)
+    return state.masters.entities.find((m) => m._id === id)
   }
 }
 

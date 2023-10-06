@@ -1,10 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Comment from "./comment"
+import { Comment } from "./index"
 
 const CommentList = ({ comments, onRemove }) => {
   return comments.map((comment) => (
-    <Comment key={comment.id} {...comment} onRemove={onRemove} />
+    <Comment key={comment._id} {...comment} onRemove={onRemove} />
   ))
 }
 

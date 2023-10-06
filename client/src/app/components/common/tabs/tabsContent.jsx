@@ -34,10 +34,11 @@ const TabsContent = () => {
       prise: 1560
     }
   ]
+  console.log(items)
   return (
     <>
-      {items.map((i) => (
-        <div className='name__box' key={i.id}>
+      {/*      {items.map((i) => (
+        <div className='name__box' key={i._id}>
           <div className='name__left'>
             <p className='name__title'>{i.title}</p>
             <p className='name__subtitle'>{i.content}</p>
@@ -46,7 +47,7 @@ const TabsContent = () => {
             <p className='name__price'>{i.prise} &#x20bd;</p>
           </div>
         </div>
-      ))}
+      ))}*/}
     </>
   )
 }

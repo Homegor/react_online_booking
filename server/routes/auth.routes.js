@@ -40,9 +40,9 @@ router.post("/signUp", [
         password: hashedPassword,
       });
 
-      const tokens = TokenService.generate({ id: newUser.id });
-      await TokenService.save(newUser.id, tokens.refreshToken);
-      res.status(201).send({ ...tokens, userid: newUser.id });
+      const tokens = TokenService.generate({ _id: newUser._id });
+      await TokenService.save(newUser._id, tokens.refreshToken);
+      res.status(200).send({ ...tokens, userId: newUser._id });
     } catch (e) {
       res.status(500).json({
         message: "На сервере произошла ошибка. Попробуйте позже",
@@ -87,9 +87,9 @@ router.post("/signInWithPassword", [
         });
       }
 
-      const tokens = TokenService.generate({ id: existingUser.id });
-      await TokenService.save(existingUser.id, tokens.refreshToken);
-      res.status(200).send({ ...tokens, userid: existingUser.id });
+      const tokens = TokenService.generate({ _id: existingUser._id });
+      await TokenService.save(existingUser._id, tokens.refreshToken);
+      res.status(200).send({ ...tokens, userId: existingUser._id });
     } catch (e) {
       res.status(500).json({
         message: "На сервере произошла ошибка. Попробуйте позже",
@@ -98,7 +98,7 @@ router.post("/signInWithPassword", [
   },
 ]);
 function isTokenInValid(data, dbToken) {
-  return !data || !dbToken || data.id !== dbToken?.user?.toSigned();
+  return !data || !dbToken || data._id !== dbToken?.user?.toSigned();
 }
 router.post("/token", async (req, res) => {
   try {
@@ -111,11 +111,11 @@ router.post("/token", async (req, res) => {
     }
 
     const tokens = await TokenService.generate({
-      id: data.id,
+      _id: data._id,
     });
-    await TokenService.save(data.id, tokens.refreshToken);
-
-    res.status(200).send({ ...tokens, userId: data.id });
+    await TokenService.save(data._id, tokens.refreshToken);
+    console.log(tokens);
+    res.status(200).send({ ...tokens, userId: data._id });
   } catch (e) {
     res.status(500).json({
       message: "На сервере произошла ошибка. Попробуйте позже",

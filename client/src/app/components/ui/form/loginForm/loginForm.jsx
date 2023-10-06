@@ -1,16 +1,28 @@
 import React, { useState } from "react"
 import TextField from "../../../common/form/textField"
 import { CheckBoxField } from "../../../common/form/checkBox"
+import { useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import {
+  getAuthErrors,
+  getCurrentUserData,
+  signIn
+} from "../../../../store/slices/userSlice"
 
 const LoginForm = () => {
   const [data, setData] = useState({ email: "", password: "", stayOn: false })
+  const navigate = useNavigate()
+  const loginError = useSelector(getAuthErrors())
+  const dispatch = useDispatch()
+  const currentUser = useSelector(getCurrentUserData())
 
   const handleChange = (target) => {
     setData((prevState) => ({ ...prevState, [target.name]: target.value }))
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(data)
+    dispatch(signIn({ payload: data }))
+    navigate(`/userPage/${currentUser}/about`)
   }
   return (
     <>
@@ -46,6 +58,7 @@ const LoginForm = () => {
                 Оставаться в системе
               </CheckBoxField>
             </div>
+            {loginError && <p className='text-danger'>{loginError}</p>}
           </div>
 
           <div className='col-md-6 d-flex justify-content-center'>

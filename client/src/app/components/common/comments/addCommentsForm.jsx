@@ -4,7 +4,6 @@ import TextAreaField from "../form/textAreaField"
 
 const AddCommentsForm = ({ onSubmit }) => {
   const [data, setData] = useState({})
-
   const handleChange = (target) => {
     setData((prevState) => ({
       ...prevState,

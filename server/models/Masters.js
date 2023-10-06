@@ -2,11 +2,11 @@ const { Schema, model } = require("mongoose");
 
 const schema = new Schema(
   {
-    name: String,
-    image: String,
-    experience: Number,
-    birthdate: String,
-    categoriesId: { type: Schema.Types.ObjectId, ref: "Categories" },
+    name: { type: String },
+    image: { type: String },
+    experience: { type: Number },
+    birthdate: { type: String },
+    categories: { type: String },
   },
   {
     timestamps: true,

@@ -1,10 +1,10 @@
 import React from "react"
-import AdminPage from "../components/pages/adminPage/adminPage"
+import { Outlet } from "react-router-dom"
 
 const Profile = () => {
   return (
     <div>
-      <AdminPage />
+      <Outlet />
     </div>
   )
 }

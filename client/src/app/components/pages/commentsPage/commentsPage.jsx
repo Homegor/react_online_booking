@@ -1,45 +1,44 @@
-import React, { useState } from "react"
+import React, { useEffect } from "react"
 
 import { orderBy } from "lodash"
 import Loader from "../../common/loader/loader"
-import AddCommentsForm from "../../common/comments/addCommentsForm"
-import CommentList from "../../common/comments/commentList"
+import { CommentList } from "../../common/comments"
+import { useParams } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import {
+  getComments,
+  getCommentsLoadingStatus,
+  loadCommentsList
+} from "../../../store/slices/commentsSlice"
 
 const CommentsPage = () => {
-  const [comments] = useState()
-  const [isLoading] = useState(true)
+  const { userId } = useParams()
+  const dispatch = useDispatch()
+  const isLoading = useSelector(getCommentsLoadingStatus())
+  const comments = useSelector(getComments())
 
-  const handleSubmit = (data) => {
-    console.log(data)
-  }
-  const handleRemoveComment = (id) => {
-    console.log(id)
-  }
+  useEffect(() => {
+    dispatch(loadCommentsList(userId))
+  }, [userId])
 
   const sortedComments = orderBy(comments, ["created_at"], ["desc"])
 
   return (
     <>
-      <div className='card mb-2 hero'>
-        <div className='card-body '>
-          <AddCommentsForm onSubmit={handleSubmit} />
-        </div>
-      </div>
-      {sortedComments.length > 0 && (
-        <div className='card mb-3 hero mt-0'>
-          <div className='card-body '>
-            <h2>Спасибо за отзывы</h2>
-            {isLoading ? (
-              <CommentList
-                comments={sortedComments}
-                onRemove={handleRemoveComment}
-              />
-            ) : (
-              <Loader />
-            )}
+      <div className={"container"}>
+        <h2>Спасибо за отзывы</h2>
+        {sortedComments.length > 0 && (
+          <div className='card mb-3 hero mt-0'>
+            <div className='card-body '>
+              {isLoading ? (
+                <CommentList comments={sortedComments} />
+              ) : (
+                <Loader />
+              )}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </>
   )
 }

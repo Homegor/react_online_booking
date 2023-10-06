@@ -2,10 +2,10 @@ const { Schema, model } = require("mongoose");
 
 const schema = new Schema(
   {
-    userId: { type: Schema.Types.ObjectId, ref: "User" },
-    serviceId: { type: Schema.Types.ObjectId, ref: "Categories" },
-    masterId: { type: Schema.Types.ObjectId, ref: "Masters" },
-    visitDateId: Date,
+    name: { type: String },
+    phone: { type: Number },
+    servicesId: { type: String || null },
+    visitDateId: { type: Date },
   },
   {
     timestamps: true,

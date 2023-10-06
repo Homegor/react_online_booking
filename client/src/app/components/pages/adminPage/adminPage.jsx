@@ -12,9 +12,6 @@ const AdminPage = () => {
         </div>
         <div className='col-sm-8 user-room__bar m-2'>
           <Outlet />
-          {/*          <div className={"d-flex justify-content-end"}>
-            <ButtonsBooking className={"m-2"} name={"Редактировать"} />
-          </div>*/}
         </div>
       </div>
     </div>

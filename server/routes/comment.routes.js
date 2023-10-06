@@ -5,7 +5,7 @@ const router = express.Router({ mergeParams: true });
 
 router
   .route("/")
-  .get(auth, async (req, res) => {
+  .get(async (req, res) => {
     try {
       const { orderBy, equalTo } = req.query;
       const list = await Comment.find({ [orderBy]: equalTo });
@@ -16,7 +16,7 @@ router
       });
     }
   })
-  .post(auth, async (req, res) => {
+  .post(async (req, res) => {
     try {
       const newComment = await Comment.create({
         ...req.body,
@@ -30,7 +30,7 @@ router
     }
   });
 
-router.delete("/:commentId", auth, async (req, res) => {
+router.delete("/:commentId", async (req, res) => {
   try {
     const { commentId } = req.params;
     const removedComment = await Comment.findById(commentId);

@@ -51,7 +51,6 @@ const FastBookingForm = () => {
       <TextField
         label={"Телефон"}
         name={"phone"}
-        type={"tel"}
         value={data.phone}
         onChange={handleChange}
         error={errors.phone}

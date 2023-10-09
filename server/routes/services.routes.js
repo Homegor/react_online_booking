@@ -1,5 +1,5 @@
 const express = require("express");
-const Services = require("../models/services");
+const Services = require("../models/Services");
 const auth = require("../middleware/auth.middleware");
 const router = express.Router({ mergeParams: true });
 

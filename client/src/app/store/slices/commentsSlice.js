@@ -72,6 +72,7 @@ export const removeComment = (commentId) => async (dispatch) => {
 }
 
 export const getComments = () => (state) => state.comments.entities
+
 export const getCommentsById = (userId) => (state) => {
   if (state.users.entities) {
     return state.users.entities.find((c) => c._id === userId)

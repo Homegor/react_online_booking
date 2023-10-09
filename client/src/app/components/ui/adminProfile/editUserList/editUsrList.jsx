@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import TextField from "../../../common/form/textField"
-import RadioField from "../../../common/form/radio"
 import {
   getCurrentUserData,
   updateUser
@@ -62,21 +61,11 @@ const EditUsrList = () => {
             onChange={handleChange}
           />
           <TextField
-            type={"tel"}
+            type={"text"}
             name={"phone"}
             value={data.phone}
             onChange={handleChange}
             label={"Номер телефона"}
-          />
-          <RadioField
-            options={[
-              { name: "Женский", value: "male" },
-              { name: "Мужской", value: "female" }
-            ]}
-            value={data.sex}
-            name={"sex"}
-            label={"Выберете ваши пол"}
-            onChange={handleChange}
           />
           <button type='submit' className='btn login-register-form__btn mb-3'>
             Редактировать

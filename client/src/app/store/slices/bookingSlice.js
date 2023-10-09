@@ -57,7 +57,7 @@ const {
   bookingRemoved
 } = actions
 
-const removeBookingRequested = createAction("bookings/removeBookingRequested")
+const removeBookingRequested = createAction("booking/removeBookingRequested")
 
 export const loadingBookingList = () => async (dispatch, getState) => {
   const { lastFetch } = getState().booking
@@ -95,8 +95,8 @@ export const removeBooking = (id) => async (dispatch) => {
 }
 
 export const getBookingList = () => (state) => state.booking.entities
-export const getIsLoggedIn = () => (state) => state.users.isLoggedIn
-export const getDataStatus = () => (state) => state.users.dataLoaded
-export const getBookingLoadingStatus = () => (state) => state.users.isLoading
+export const getIsLoggedIn = () => (state) => state.booking.isLoggedIn
+export const getDataStatus = () => (state) => state.booking.dataLoaded
+export const getBookingLoadingStatus = () => (state) => state.booking.isLoading
 
 export default bookingReducer

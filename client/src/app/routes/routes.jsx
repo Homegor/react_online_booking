@@ -41,25 +41,27 @@ export const Routes = (isLoggedIn, location) => [
     children: [
       {
         path: "",
-        element: <Navigate to={"./login"} />
+        element: <Navigate to={"auth/login"} />
       },
       { path: "login", element: <LoginPage /> },
       { path: "register", element: <RegisterPage /> },
-      { path: "*", element: <Navigate to={"../login"} /> }
+      { path: "*", element: <Navigate to={"auth/login"} /> }
     ]
   },
   {
     path: "userPage",
     element: <AdminPage />,
     children: [
-      { index: true, element: <Navigate to={":userId"} /> },
       {
         path: ":userId",
         element: <Outlet />,
         children: [
           { path: "", element: <AboutUserList /> },
           { path: "static", element: <StatisticsUserList /> },
-          { path: "booking", element: <BookingUserList /> },
+          {
+            path: "booking",
+            element: <BookingUserList />
+          },
           { path: "settings", element: <SettingsUserList /> },
           { path: "comments", element: <CommentsUserList /> },
           { path: "edit", element: <EditUsrList /> },
@@ -69,5 +71,4 @@ export const Routes = (isLoggedIn, location) => [
     ]
   }
 ]
-
 export default Routes

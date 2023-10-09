@@ -38,5 +38,15 @@
     "servicesId": [
       "Брови и ресницы"
     ]
+  },
+  {
+    "_id": "ncvkzxmfvnslt85950",
+    "name": "Алексей Николаевский",
+    "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Chester",
+    "experience": 10,
+    "birthdate": "1983-11-12",
+    "servicesId": [
+      "Брови"
+    ]
   }
 ]

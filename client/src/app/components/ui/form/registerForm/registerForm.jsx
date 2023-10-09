@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react"
 import TextField from "../../../common/form/textField"
 import { validator } from "../../../../utils/validator"
 import validConfig from "./validConfig"
-import RadioField from "../../../common/form/radio"
 import { CheckBoxField } from "../../../common/form/checkBox"
-import { useDispatch } from "react-redux"
-import { signUp } from "../../../../store/slices/userSlice"
+import { useDispatch, useSelector } from "react-redux"
+import { getCurrentUserId, signUp } from "../../../../store/slices/userSlice"
 import { useNavigate } from "react-router-dom"
 
 const RegisterForm = () => {
@@ -15,11 +14,12 @@ const RegisterForm = () => {
     password: "",
     name: "",
     phone: "",
-    sex: "",
     licence: false
   })
 
   const dispatch = useDispatch()
+  const currentUserId = useSelector(getCurrentUserId())
+
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -42,8 +42,8 @@ const RegisterForm = () => {
     const newData = {
       ...data
     }
-    navigate("/")
     dispatch(signUp(newData))
+    navigate(`/userPage/${currentUserId}`)
   }
   return (
     <form onSubmit={handleSubmit}>
@@ -70,17 +70,6 @@ const RegisterForm = () => {
         onChange={handleChange}
         error={errors.phone}
         label={"Номер телефона"}
-      />
-      <RadioField
-        options={[
-          { name: "Женский", value: "male" },
-          { name: "Мужской", value: "female" }
-        ]}
-        value={data.sex}
-        name={"sex"}
-        label={"Выберете ваши пол"}
-        onChange={handleChange}
-        error={errors.sex}
       />
       <TextField
         label={"Пароль"}

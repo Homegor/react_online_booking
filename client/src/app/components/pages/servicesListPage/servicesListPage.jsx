@@ -9,6 +9,7 @@ import {
 const ServicesListPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log(e)
   }
 
   return (

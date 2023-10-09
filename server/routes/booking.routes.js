@@ -16,11 +16,11 @@ router.get("/", async (req, res) => {
     });
   }
 });
-router.post("/booking", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const newBooking = await Booking.create({
       ...req.body,
-      bookingId: req.booking._id,
+      bookingId: req.bookingId._id,
     });
     console.log(newBooking);
     res.status(201).send(newBooking);

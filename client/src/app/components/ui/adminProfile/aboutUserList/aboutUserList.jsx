@@ -1,46 +1,41 @@
 import React from "react"
-import PropTypes from "prop-types"
-import {
-  getUsersList,
-  getCurrentUserId
-} from "../../../../store/slices/userSlice"
+import { getCurrentUserData } from "../../../../store/slices/userSlice"
 import { useSelector } from "react-redux"
 
 const AboutUserList = () => {
-  const user = useSelector(getUsersList())
-  console.log("user", user)
-  const currentUserId = useSelector(getCurrentUserId())
-  console.log("currentUserId", currentUserId)
+  const currentUser = useSelector(getCurrentUserData())
 
   return (
     <>
-      <h2>О вас</h2>
-      <div className='row user-info'>
-        {/*      <div className='col-6 col-md-4 user-room__request text-center p-2'>
-        <p>Фамилия/Имя</p>
-      </div>
-      <div className='col-12 col-md-8 user-room__info text-center p-2'>
-        <p>{user.name}</p>
-      </div>
-      <div className='col-6 col-md-4 user-room__request text-center p-2'>
-        <p>Пол</p>
-      </div>
-      <div className='col-12 col-md-8 text-center p-2'>
-        <p>{user.sex}</p>
-      </div>
-      <div className='col-6 col-md-4 user-room__request text-center p-2'>
-        <p>Номер телефона</p>
-      </div>
-      <div className='col-12 col-md-8 text-center p-2'>
-        <p>{user.phone}</p>
-      </div>*/}
+      <div className={"p-4"}>
+        <h2>О вас</h2>
+
+        <div className='row user-info'>
+          <div className='col-6 col-md-4 user-room__request text-center'>
+            <p>Имя / Фамилия</p>
+          </div>
+          <div className='col-12 col-md-8 user-room__info text-center'>
+            <p>{currentUser.name}</p>
+          </div>
+          <hr />
+          <div className='col-6 col-md-4 user-room__request text-center'>
+            <p>Номер телефона</p>
+          </div>
+          <div className='col-12 col-md-8 text-center'>
+            <p>{currentUser.phone}</p>
+          </div>
+          <hr />
+          <div className='col-6 col-md-4 user-room__request text-center'>
+            <p>Ваш Email</p>
+          </div>
+          <div className='col-12 col-md-8 text-center'>
+            <p>{currentUser.email}</p>
+          </div>
+          <hr />
+        </div>
       </div>
     </>
   )
-}
-
-AboutUserList.propTypes = {
-  user: PropTypes.object
 }
 
 export default AboutUserList

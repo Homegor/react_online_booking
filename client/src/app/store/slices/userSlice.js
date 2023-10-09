@@ -131,7 +131,7 @@ export const updateUser = (payload) => async (dispatch) => {
   try {
     const { content } = await userService.update(payload)
     dispatch(userUpdateSuccess(content))
-    history.push(`/users/${content._id}`)
+    history.push(`/userPage/${content._id}`)
   } catch (error) {
     dispatch(userUpdateFailed(error.message))
   }
@@ -145,7 +145,6 @@ export const getCurrentUserData = () => (state) => {
     : null
 }
 export const getUserById = (userId) => (state) => {
-  console.log(userId)
   if (state.users.entities) {
     return state.users.entities.find((u) => u._id === userId)
   }

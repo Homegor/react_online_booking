@@ -6,7 +6,7 @@ import authService from "./auth.service"
 import localStorageService from "./localStorage.service"
 
 const http = axios.create({
-  baseURL: configFile.apiEndpoint
+  baseURL: configFile.apiEndPoint
 })
 
 http.interceptors.request.use(
@@ -77,7 +77,7 @@ http.interceptors.response.use(
 
     if (!expectedErrors) {
       console.log(error)
-      toast.error("Somthing was wrong. Try it later")
+      toast.error("Something was wrong. Try it later")
     }
     return Promise.reject(error)
   }

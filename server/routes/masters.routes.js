@@ -1,11 +1,13 @@
 const express = require("express");
 const Masters = require("../models/Masters");
 const auth = require("../middleware/auth.middleware");
+
 const router = express.Router({ mergeParams: true });
 
 router.get("/", async (req, res) => {
   try {
     const list = await Masters.find();
+    console.log(list);
     res.status(200).send(list);
   } catch (e) {
     res.status(500).json({

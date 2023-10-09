@@ -3,9 +3,10 @@ const { Schema, model } = require("mongoose");
 const schema = new Schema(
   {
     name: { type: String },
-    phone: { type: Number },
+    phone: { type: String },
+    mastersId: { type: Schema.Types.ObjectId, ref: "Masters" },
     servicesId: { type: String || null },
-    visitDateId: { type: Date },
+    visitDateId: { type: String },
   },
   {
     timestamps: true,

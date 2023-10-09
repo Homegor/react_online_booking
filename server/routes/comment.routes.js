@@ -16,12 +16,13 @@ router
       });
     }
   })
-  .post(async (req, res) => {
+  .post(auth, async (req, res) => {
     try {
       const newComment = await Comment.create({
         ...req.body,
         userId: req.user._id,
       });
+      console.log(newComment);
       res.status(201).send(newComment);
     } catch (e) {
       res.status(500).json({
@@ -30,7 +31,7 @@ router
     }
   });
 
-router.delete("/:commentId", async (req, res) => {
+router.delete("/:commentsId", async (req, res) => {
   try {
     const { commentId } = req.params;
     const removedComment = await Comment.findById(commentId);

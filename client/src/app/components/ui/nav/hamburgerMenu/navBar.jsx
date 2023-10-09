@@ -2,8 +2,12 @@ import React from "react"
 import NavProfile from "./navProfile"
 import { Link } from "react-router-dom"
 import { ContactForUs } from "./index"
+import { useSelector } from "react-redux"
+import { getCurrentUserData } from "../../../../store/slices/userSlice"
 
 const NavBar = () => {
+  const currentUser = useSelector(getCurrentUserData())
+
   return (
     <>
       <ul className='menu__box'>
@@ -28,11 +32,13 @@ const NavBar = () => {
             Ваши отзывы
           </Link>
         </li>
-        <li>
-          <Link className={"menu__item"} to={"auth/login"}>
-            Вход/Регистрация
-          </Link>
-        </li>
+        {!currentUser && (
+          <li>
+            <Link className={"menu__item"} to={"auth/login"}>
+              Вход/Регистрация
+            </Link>
+          </li>
+        )}
 
         <ContactForUs />
       </ul>

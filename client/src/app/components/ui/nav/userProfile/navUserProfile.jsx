@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { getCurrentUserData, logOut } from "../../../../store/slices/userSlice"
+import { getCurrentUserId, logOut } from "../../../../store/slices/userSlice"
 
 const NavUserProfile = () => {
-  const currentUser = useSelector(getCurrentUserData())
+  const currentUserId = useSelector(getCurrentUserId())
   const dispatch = useDispatch()
 
   const isAdmin = false
@@ -18,14 +18,14 @@ const NavUserProfile = () => {
         {!isAdmin ? (
           <Link
             className='menu__item user-room__menu-item '
-            to={`/userPage/${currentUser}/about`}
+            to={`/userPage/${currentUserId}/about`}
           >
             Все пользователи АДМИН
           </Link>
         ) : (
           <Link
             className='menu__item user-room__menu-item '
-            to={`/userPage/${currentUser}/about`}
+            to={`/userPage/${currentUserId}/about`}
           >
             Пользователь НЕ Админ
           </Link>
@@ -34,7 +34,7 @@ const NavUserProfile = () => {
       <li>
         <Link
           className='menu__item user-room__menu-item'
-          to={`/userPage/${currentUser}/static`}
+          to={`/userPage/${currentUserId}/static`}
         >
           Статистика
         </Link>
@@ -42,7 +42,7 @@ const NavUserProfile = () => {
       <li>
         <Link
           className='menu__item user-room__menu-item'
-          to={`/userPage/${currentUser}/booking`}
+          to={`/userPage/${currentUserId}/booking`}
         >
           Записи
         </Link>
@@ -50,13 +50,13 @@ const NavUserProfile = () => {
       <li>
         <Link
           className='menu__item user-room__menu-item'
-          to={`/userPage/${currentUser}/settings`}
+          to={`/userPage/${currentUserId}/settings`}
         >
           Настройки
         </Link>
         <Link
           className='menu__item user-room__menu-item'
-          to={`/userPage/${currentUser}/comments`}
+          to={`/userPage/${currentUserId}/comments`}
         >
           Оставить отзыв
         </Link>
@@ -64,7 +64,7 @@ const NavUserProfile = () => {
       <li>
         <Link
           className='menu__item user-room__menu-item'
-          to={`/userPage/${currentUser}/edit`}
+          to={`/userPage/${currentUserId}/edit`}
         >
           Редактировать
         </Link>

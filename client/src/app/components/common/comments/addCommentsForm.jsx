@@ -27,7 +27,7 @@ const AddCommentsForm = ({ onSubmit }) => {
         <TextAreaField
           value={data.content || ""}
           onChange={handleChange}
-          name='content'
+          name={"content"}
         />
         <div className='d-flex justify-content-end'>
           <button className='btn btn-primary'>Опубликовать</button>

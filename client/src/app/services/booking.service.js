@@ -1,6 +1,6 @@
 import httpService from "./http.service"
 
-const bookingEndPoint = "/booking"
+const bookingEndPoint = "booking/"
 
 const bookingService = {
   getBooking: async () => {

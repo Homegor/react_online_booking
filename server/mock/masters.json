@@ -1,8 +1,10 @@
 [
   {
     "_id": "sdlkghsflkjgh9853",
-    "name": "Иван Петров",
-    "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Boo",
+    "name": "Краснова Ирина",
+    "email": "krasnova@mail.ru",
+    "avatars": "https://api.dicebear.com/7.x/adventurer/svg?seed=Boo",
+    "image": "http://localhost:8080/api/images/irina.png",
     "experience": 5,
     "birthdate": "1995-05-25",
     "categoriesId": [
@@ -10,19 +12,11 @@
     ]
   },
   {
-    "_id": "akljfhkcjvnf85",
-    "name": "Анна Сидорова",
-    "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Bella",
-    "experience": 3,
-    "birthdate": "1995-05-25",
-    "categories": [
-      "Косметология"
-    ]
-  },
-  {
     "_id": "workejvclskcgje9530r03",
-    "name": "Мария Иванова",
-    "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Sam",
+    "name": "Киселева Алина",
+    "email": "kiseleva@mail.ru",
+    "avatars": "https://api.dicebear.com/7.x/adventurer/svg?seed=Sam",
+    "image": "http://localhost:8080/api/images/alina.png",
     "experience": 7,
     "birthdate": "1988-09-03",
     "servicesId": [
@@ -30,9 +24,11 @@
     ]
   },
   {
-    "_id": "ncvkzxmfvnslt85950",
-    "name": "Алексей Николаев",
-    "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Chester",
+    "_id": "ncvkzxmfvnslt859",
+    "name": "Иванова Елена",
+    "email": "ivanova@mail.ru",
+    "avatars": "https://api.dicebear.com/7.x/adventurer/svg?seed=Chester",
+    "image": "http://localhost:8080/api/images/elena.png",
     "experience": 4,
     "birthdate": "1993-11-12",
     "servicesId": [
@@ -41,12 +37,14 @@
   },
   {
     "_id": "ncvkzxmfvnslt85950",
-    "name": "Алексей Николаевский",
-    "image": "https://api.dicebear.com/7.x/adventurer/svg?seed=Chester",
+    "name": "Калилова Жанна",
+    "email": "kalilova@mail.ru",
+    "avatars": "https://api.dicebear.com/7.x/adventurer/svg?seed=Chester",
+    "image": "http://localhost:8080/api/images/janna.png",
     "experience": 10,
     "birthdate": "1983-11-12",
     "servicesId": [
-      "Брови"
+      "Брови и ресницы"
     ]
   }
 ]

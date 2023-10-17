@@ -2,8 +2,8 @@ const { Schema, model } = require("mongoose");
 
 const schema = new Schema(
   {
-    name: { type: String },
     categoriesId: { type: Schema.Types.ObjectId, ref: "Categories" },
+    name: { type: String },
   },
   {
     timestamps: { createdAt: "created_at" },

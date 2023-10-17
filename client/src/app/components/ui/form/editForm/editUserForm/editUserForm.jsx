@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react"
-import TextField from "../../../common/form/textField"
+import { useDispatch, useSelector } from "react-redux"
 import {
   getCurrentUserData,
   updateUser
-} from "../../../../store/slices/userSlice"
-import { useDispatch, useSelector } from "react-redux"
-import Loader from "../../../common/loader/loader"
+} from "../../../../../store/slices/userSlice"
+import TextField from "../../../../common/form/textField"
+import Loader from "../../../../common/loader/loader"
 
-const EditUsrList = () => {
+const EditUserForm = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [data, setData] = useState()
   const currentUser = useSelector(getCurrentUserData())
@@ -43,7 +43,7 @@ const EditUsrList = () => {
   }
   return (
     <>
-      <h2>Редактирование</h2>
+      <h2 className={"m-2"}>Редактировать пользователя</h2>
       {!isLoading ? (
         <form onSubmit={handleSubmit}>
           <TextField
@@ -61,14 +61,14 @@ const EditUsrList = () => {
             onChange={handleChange}
           />
           <TextField
-            type={"text"}
+            type={"tel"}
             name={"phone"}
             value={data.phone}
             onChange={handleChange}
             label={"Номер телефона"}
           />
           <button type='submit' className='btn login-register-form__btn mb-3'>
-            Редактировать
+            Изменить
           </button>
         </form>
       ) : (
@@ -78,4 +78,4 @@ const EditUsrList = () => {
   )
 }
 
-export default EditUsrList
+export default EditUserForm

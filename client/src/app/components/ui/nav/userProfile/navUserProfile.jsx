@@ -1,13 +1,16 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { getCurrentUserId, logOut } from "../../../../store/slices/userSlice"
+import {
+  getCurrentUserData,
+  getCurrentUserId,
+  logOut
+} from "../../../../store/slices/userSlice"
 
 const NavUserProfile = () => {
   const currentUserId = useSelector(getCurrentUserId())
+  const currentUser = useSelector(getCurrentUserData())
   const dispatch = useDispatch()
-
-  const isAdmin = false
 
   const handleLogOut = () => {
     dispatch(logOut())
@@ -15,21 +18,20 @@ const NavUserProfile = () => {
   return (
     <ul className='list-group user-room__Navbar list-group-flush'>
       <li>
-        {!isAdmin ? (
-          <Link
-            className='menu__item user-room__menu-item '
-            to={`/userPage/${currentUserId}/about`}
-          >
-            Все пользователи АДМИН
-          </Link>
-        ) : (
-          <Link
-            className='menu__item user-room__menu-item '
-            to={`/userPage/${currentUserId}/about`}
-          >
-            Пользователь НЕ Админ
-          </Link>
-        )}
+        <Link
+          className='menu__item user-room__menu-item '
+          to={`/userPage/${currentUserId}/about`}
+        >
+          <span className={"text-primary"}>{currentUser.name}</span>
+        </Link>
+      </li>
+      <li>
+        <Link
+          className='menu__item user-room__menu-item '
+          to={`/userPage/${currentUserId}/allUsers`}
+        >
+          Все посетители
+        </Link>
       </li>
       <li>
         <Link
@@ -59,14 +61,6 @@ const NavUserProfile = () => {
           to={`/userPage/${currentUserId}/comments`}
         >
           Оставить отзыв
-        </Link>
-      </li>
-      <li>
-        <Link
-          className='menu__item user-room__menu-item'
-          to={`/userPage/${currentUserId}/edit`}
-        >
-          Редактировать
         </Link>
       </li>
       <li>

@@ -4,8 +4,7 @@ const mastersEndPoint = "masters/"
 
 const mastersService = {
   getMasters: async () => {
-    const { data } = await httpService.post(mastersEndPoint)
-    console.log(data)
+    const { data } = await httpService.get(mastersEndPoint)
     return data
   }
 }

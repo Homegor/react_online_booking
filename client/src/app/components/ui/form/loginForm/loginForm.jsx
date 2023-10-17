@@ -1,28 +1,44 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import TextField from "../../../common/form/textField"
-import { CheckBoxField } from "../../../common/form/checkBox"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
+import validConfig from "../registerForm/validConfig"
 import {
   getAuthErrors,
   getCurrentUserData,
   signIn
 } from "../../../../store/slices/userSlice"
+import { validator } from "../../../../utils/validator"
 
 const LoginForm = () => {
   const [data, setData] = useState({ email: "", password: "", stayOn: false })
+  const [errors, setErrors] = useState({})
   const navigate = useNavigate()
+  const location = useLocation()
   const loginError = useSelector(getAuthErrors())
   const dispatch = useDispatch()
   const currentUser = useSelector(getCurrentUserData())
+
+  const validate = () => {
+    const errors = validator(data, validConfig)
+    setErrors(errors)
+    return Object.keys(errors).length === 0
+  }
+  useEffect(() => {
+    validate()
+  }, [data])
 
   const handleChange = (target) => {
     setData((prevState) => ({ ...prevState, [target.name]: target.value }))
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(signIn({ payload: data }))
-    navigate(`/userPage/${currentUser}/about`)
+    const isValid = validate()
+    if (!isValid) return
+    const redirect = location.state
+      ? location.state.referrer.pathname
+      : navigate(`/userPage/${currentUser}/about`)
+    dispatch(signIn({ payload: data, redirect }))
   }
   return (
     <>
@@ -34,6 +50,7 @@ const LoginForm = () => {
             label={"Электронная почта"}
             onChange={handleChange}
             value={data.email}
+            error={errors.email}
           />
         </div>
 
@@ -44,25 +61,13 @@ const LoginForm = () => {
             name={"password"}
             value={data.password}
             onChange={handleChange}
+            error={errors.password}
           />
         </div>
 
         <div className='row m-4'>
           <div className='col-md-6 d-flex justify-content-center'>
-            <div className='form-check mb-3 mb-md-0'>
-              <CheckBoxField
-                value={data.stayOn}
-                onChange={handleChange}
-                name={"stayOn"}
-              >
-                Оставаться в системе
-              </CheckBoxField>
-            </div>
             {loginError && <p className='text-danger'>{loginError}</p>}
-          </div>
-
-          <div className='col-md-6 d-flex justify-content-center'>
-            <a href='#'>Восстановить доступ</a>
           </div>
         </div>
 

@@ -4,7 +4,7 @@ import { validator } from "../../../../utils/validator"
 import validConfig from "./validConfig"
 import { CheckBoxField } from "../../../common/form/checkBox"
 import { useDispatch, useSelector } from "react-redux"
-import { getCurrentUserId, signUp } from "../../../../store/slices/userSlice"
+import { getCurrentUserData, signUp } from "../../../../store/slices/userSlice"
 import { useNavigate } from "react-router-dom"
 
 const RegisterForm = () => {
@@ -18,7 +18,7 @@ const RegisterForm = () => {
   })
 
   const dispatch = useDispatch()
-  const currentUserId = useSelector(getCurrentUserId())
+  const currentUserId = useSelector(getCurrentUserData())
 
   const navigate = useNavigate()
 
@@ -43,7 +43,7 @@ const RegisterForm = () => {
       ...data
     }
     dispatch(signUp(newData))
-    navigate(`/userPage/${currentUserId}`)
+    navigate(`/userPage/${currentUserId}/about`)
   }
   return (
     <form onSubmit={handleSubmit}>

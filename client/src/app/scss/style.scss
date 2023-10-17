@@ -193,7 +193,7 @@ section {
   position: fixed;
   top: 0;
   left: -100%;
-  width: 300px;
+  width: 250px;
   height: 100%;
   margin: 0;
   padding: 80px 0;
@@ -871,5 +871,38 @@ section {
 
 }
 // End Modal
+// Start booking information
+.booking, .users{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  &__info{
+    width: 280px;
+    background-color: rgb(195 189 180 / 12%);
+    border-radius: 8px;
+    border: 1px solid #fb9475;
+    padding: 8px;
+    margin: 5px;
+  }
+  &__userInfo{
+    float: right;
+    color: #fb9475;
+  }
+  &__click{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  &__btn{
+    width: 120px;
+    font-size: 14px;
+  }
+  &__danger{
+    background-color: #ff000054;
+    font-weight: 600;
+    color: #000000;
+  }
+}
+// End booking information
 
 @import "components/media";

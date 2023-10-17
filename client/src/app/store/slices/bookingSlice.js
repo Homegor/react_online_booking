@@ -86,6 +86,7 @@ export const removeBooking = (id) => async (dispatch) => {
   dispatch(removeBookingRequested())
   try {
     const { content } = await bookingService.removeBooking(id)
+    console.log(content)
     if (!content) {
       dispatch(bookingRemoved(id))
     }
@@ -95,6 +96,11 @@ export const removeBooking = (id) => async (dispatch) => {
 }
 
 export const getBookingList = () => (state) => state.booking.entities
+export const getBookingByUserId = (userId) => (state) => {
+  if (state.booking.entities) {
+    return state.booking.entities.filter((b) => b.userId === userId)
+  }
+}
 export const getIsLoggedIn = () => (state) => state.booking.isLoggedIn
 export const getDataStatus = () => (state) => state.booking.dataLoaded
 export const getBookingLoadingStatus = () => (state) => state.booking.isLoading

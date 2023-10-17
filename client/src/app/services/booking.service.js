@@ -9,10 +9,11 @@ const bookingService = {
   },
   createBooking: async (payload) => {
     const { data } = await httpService.post(bookingEndPoint, payload)
+    console.log(payload)
     return data
   },
-  removeBooking: async (id) => {
-    const { data } = await httpService.delete(bookingEndPoint + id)
+  removeBooking: async (bookingId) => {
+    const { data } = await httpService.delete(bookingEndPoint + bookingId)
     return data
   }
 }

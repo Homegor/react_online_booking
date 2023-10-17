@@ -64,8 +64,11 @@ router.post("/signInWithPassword", [
           },
         });
       }
+
       const { email, password } = req.body;
+
       const existingUser = await User.findOne({ email });
+
       if (!existingUser) {
         return res.status(400).send({
           error: {
@@ -74,10 +77,12 @@ router.post("/signInWithPassword", [
           },
         });
       }
+
       const isPasswordEqual = await bcrypt.compare(
         password,
         existingUser.password
       );
+
       if (!isPasswordEqual) {
         return res.status(400).send({
           error: {
@@ -89,6 +94,7 @@ router.post("/signInWithPassword", [
 
       const tokens = TokenService.generate({ _id: existingUser._id });
       await TokenService.save(existingUser._id, tokens.refreshToken);
+
       res.status(200).send({ ...tokens, userId: existingUser._id });
     } catch (e) {
       res.status(500).json({

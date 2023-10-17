@@ -6,8 +6,7 @@ const mastersSlice = createSlice({
   initialState: {
     entities: null,
     isLoading: true,
-    error: null,
-    lastFetch: null
+    error: null
   },
   reducers: {
     mastersRequested: (state) => {
@@ -15,7 +14,6 @@ const mastersSlice = createSlice({
     },
     mastersReceived: (state, action) => {
       state.entities = action.payload
-      state.lastFetch = Date.now()
       state.isLoading = false
     },
     mastersRequestFiled: (state, action) => {

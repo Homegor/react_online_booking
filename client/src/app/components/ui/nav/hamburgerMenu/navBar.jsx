@@ -3,17 +3,17 @@ import NavProfile from "./navProfile"
 import { Link } from "react-router-dom"
 import { ContactForUs } from "./index"
 import { useSelector } from "react-redux"
-import { getCurrentUserData } from "../../../../store/slices/userSlice"
+import { getIsLoggedIn } from "../../../../store/slices/userSlice"
 
 const NavBar = () => {
-  const currentUser = useSelector(getCurrentUserData())
+  const currentUser = useSelector(getIsLoggedIn())
 
   return (
     <>
       <ul className='menu__box'>
         <div className='menu__logo'>
           <div className='logo'>
-            <a href='#'>Мир красоты</a>
+            <Link to='/'>Мир красоты</Link>
           </div>
         </div>
         <NavProfile />

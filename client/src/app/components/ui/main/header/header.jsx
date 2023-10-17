@@ -10,6 +10,7 @@ import FastBookingForm from "../../form/bookingForm/fastBookingForm"
 
 const Header = () => {
   const [modalActive, setModalActive] = useState(false)
+
   return (
     <>
       <header>

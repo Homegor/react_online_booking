@@ -4,9 +4,9 @@ const schema = new Schema(
   {
     name: { type: String },
     phone: { type: String },
-    mastersId: { type: Schema.Types.ObjectId, ref: "Masters" },
+    mastersId: { type: String || null },
     servicesId: { type: String || null },
-    visitDateId: { type: String },
+    visitDateId: { type: String || null },
   },
   {
     timestamps: true,

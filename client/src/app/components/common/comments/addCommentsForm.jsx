@@ -21,7 +21,7 @@ const AddCommentsForm = ({ onSubmit }) => {
     clearForm()
   }
   return (
-    <div>
+    <>
       <h2>Оставляйте свой комментарий</h2>
       <form onSubmit={handleSubmit}>
         <TextAreaField
@@ -33,7 +33,7 @@ const AddCommentsForm = ({ onSubmit }) => {
           <button className='btn btn-primary'>Опубликовать</button>
         </div>
       </form>
-    </div>
+    </>
   )
 }
 AddCommentsForm.propTypes = {

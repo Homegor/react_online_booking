@@ -7,8 +7,8 @@ module.exports = router;
 
 router.get("/", async (req, res) => {
   try {
-    const { orderBy, equalTo } = req.query;
-    const list = await Booking.find({ [orderBy]: equalTo });
+    const { bookingId } = req.query;
+    const list = await Booking.find(bookingId);
     res.send(list);
   } catch (e) {
     res.status(500).json({
@@ -20,9 +20,7 @@ router.post("/", async (req, res) => {
   try {
     const newBooking = await Booking.create({
       ...req.body,
-      bookingId: req.bookingId._id,
     });
-    console.log(newBooking);
     res.status(201).send(newBooking);
   } catch (e) {
     res.status(500).json({
@@ -34,10 +32,8 @@ router.delete("/:bookingId", auth, async (req, res) => {
   try {
     const { bookingId } = req.params;
     const removedBooking = await Booking.findById(bookingId);
-    const currentUser = removedBooking.userId.toSigned() === req.user._id;
-    const isAdmin = req.userRole === "admin" || "master";
 
-    if (currentUser || isAdmin) {
+    if (removedBooking._id.toString() === bookingId) {
       await removedBooking.deleteOne();
       return res.send(null);
     } else {

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux"
 const NavProfile = () => {
   const [isOpen, setOpen] = useState(false)
   const currentUser = useSelector(getCurrentUserData())
+
   const dispatch = useDispatch()
 
   const toggleMenu = () => {
@@ -45,7 +46,10 @@ const NavProfile = () => {
                 aria-labelledby='dropdownMenuButton1'
               >
                 <li>
-                  <Link className='dropdown-item' to={`/userPage`}>
+                  <Link
+                    className='dropdown-item'
+                    to={`/userPage/${currentUser._id}/about`}
+                  >
                     Профиль
                   </Link>
                 </li>

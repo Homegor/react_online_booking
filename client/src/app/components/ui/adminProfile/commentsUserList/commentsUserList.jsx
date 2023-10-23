@@ -9,8 +9,8 @@ import {
   removeComment
 } from "../../../../store/slices/commentsSlice"
 import { useParams } from "react-router-dom"
-import { getCurrentUserId } from "../../../../store/slices/userSlice"
 import Loader from "../../../common/loader/loader"
+import { getCurrentUserId } from "../../../../store/slices/userSlice"
 
 const CommentsUserList = () => {
   const { userId } = useParams()
@@ -35,13 +35,13 @@ const CommentsUserList = () => {
         <AddCommentsForm onSubmit={handleSubmit} />
       </div>
       <hr />
-      <p className={"text-center"}>Выши комментарии</p>
+      <h2 className={"text-center m-3"}>Выши комментарии</h2>
       {!isLoading ? (
         <>
           {comments.map((comments) => (
             <div key={comments._id}>
               {comments.userId === user && (
-                <>
+                <div className={"commentUserProfile"}>
                   <p>{comments.content}</p>
                   <button
                     onClick={() => handleRemoveComment(comments._id)}
@@ -49,7 +49,7 @@ const CommentsUserList = () => {
                   >
                     Удалить
                   </button>
-                </>
+                </div>
               )}
             </div>
           ))}

@@ -5,6 +5,7 @@ const commentEndPoint = "comments/"
 const commentService = {
   createComments: async (payload) => {
     const { data } = await httpService.post(commentEndPoint, payload)
+    console.log(data)
     return data
   },
   getComments: async (pageId) => {

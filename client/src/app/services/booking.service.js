@@ -5,6 +5,7 @@ const bookingEndPoint = "booking/"
 const bookingService = {
   getBooking: async () => {
     const { data } = await httpService.get(bookingEndPoint)
+    console.log(data)
     return data
   },
   createBooking: async (payload) => {

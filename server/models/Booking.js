@@ -4,9 +4,10 @@ const schema = new Schema(
   {
     name: { type: String },
     phone: { type: String },
-    mastersId: { type: String || null },
-    servicesId: { type: String || null },
-    visitDateId: { type: String || null },
+    userId: { type: Schema.Types.ObjectId, ref: "User" },
+    masters: { type: String },
+    services: { type: String },
+    visitDate: { type: String },
   },
   {
     timestamps: true,

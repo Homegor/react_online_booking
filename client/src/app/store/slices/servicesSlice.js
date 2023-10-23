@@ -68,7 +68,7 @@ export const removedServices = (servicesId) => async (dispatch) => {
     dispatch(servicesRequestFiled(error.message))
   }
 }
-export const getServices = () => (state) => state.services.entities
+export const getServicesList = () => (state) => state.services.entities
 export const getServicesLoadingStatus = () => (state) =>
   state.services.isLoading
 

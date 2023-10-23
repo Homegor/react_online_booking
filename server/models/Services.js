@@ -2,11 +2,12 @@ const { Schema, model } = require("mongoose");
 
 const schema = new Schema(
   {
-    categoriesId: { type: Schema.Types.ObjectId, ref: "Categories" },
     name: { type: String },
+    prise: { type: Number },
+    category: { type: Schema.Types.ObjectId, ref: "Category" },
   },
   {
-    timestamps: { createdAt: "created_at" },
+    timestamps: true,
   }
 );
 

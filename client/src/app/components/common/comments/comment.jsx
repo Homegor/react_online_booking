@@ -46,11 +46,7 @@ const Comment = ({ content, userId }) => {
 
 Comment.propTypes = {
   content: PropTypes.string,
-  edited_at: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  created_at: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  userId: PropTypes.string,
-  onRemove: PropTypes.func,
-  _id: PropTypes.string
+  userId: PropTypes.string
 }
 
 export default Comment

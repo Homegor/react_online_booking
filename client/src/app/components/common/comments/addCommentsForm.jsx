@@ -18,6 +18,7 @@ const AddCommentsForm = ({ onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     onSubmit(data)
+    console.log(data)
     clearForm()
   }
   return (

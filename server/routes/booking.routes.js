@@ -3,8 +3,6 @@ const router = express.Router({ mergeParams: true });
 const auth = require("../middleware/auth.middleware");
 const Booking = require("../models/Booking");
 
-module.exports = router;
-
 router.get("/", async (req, res) => {
   try {
     const { bookingId } = req.query;
@@ -45,3 +43,4 @@ router.delete("/:bookingId", auth, async (req, res) => {
     });
   }
 });
+module.exports = router;

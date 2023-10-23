@@ -25,7 +25,6 @@ router.patch("/:userId", auth, async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const list = await User.find();
-    console.log(list);
     res.send(list);
   } catch (e) {
     res.status(500).json({

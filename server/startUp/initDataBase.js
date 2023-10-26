@@ -1,4 +1,4 @@
-const Categories = require("../models/Categories");
+const Categories = require("../models/Category");
 const categoriesMock = require("../mock/categories.json");
 const Masters = require("../models/Masters");
 const mastersMock = require("../mock/masters.json");

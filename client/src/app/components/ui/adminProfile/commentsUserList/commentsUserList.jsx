@@ -1,58 +1,63 @@
 import React, { useEffect } from "react"
 import AddCommentsForm from "../../../common/comments/addCommentsForm"
-import { useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import {
   createComment,
-  getCommentsById,
+  getComments,
   getCommentsLoadingStatus,
   loadCommentsList,
   removeComment
 } from "../../../../store/slices/commentsSlice"
-import { orderBy } from "lodash"
-import { CommentList } from "../../../common/comments"
+import { useParams } from "react-router-dom"
 import Loader from "../../../common/loader/loader"
+import { getCurrentUserId } from "../../../../store/slices/userSlice"
 
 const CommentsUserList = () => {
   const { userId } = useParams()
   const dispatch = useDispatch()
+  const comments = useSelector(getComments())
+  const isLoading = useSelector(getCommentsLoadingStatus())
+  const user = useSelector(getCurrentUserId())
+
   useEffect(() => {
     dispatch(loadCommentsList(userId))
   }, [userId])
-  const isLoading = useSelector(getCommentsLoadingStatus())
-  const comments = useSelector(getCommentsById())
 
   const handleSubmit = (data) => {
-    dispatch(createComment({ ...data, pageId: userId }))
+    dispatch(createComment({ ...data }))
   }
   const handleRemoveComment = (id) => {
     dispatch(removeComment(id))
   }
-  const sortedComments = orderBy(comments, ["created_at"], ["desc"])
   return (
     <>
       <div className={"m-4"}>
         <AddCommentsForm onSubmit={handleSubmit} />
       </div>
-      {sortedComments.length > 0 && (
+      <hr />
+      <h2 className={"text-center m-3"}>Выши комментарии</h2>
+      {!isLoading ? (
         <>
-          <hr />
-          <div className='m-4'>
-            <h2>Comments</h2>
-            <hr />
-            {!isLoading ? (
-              <CommentList
-                comments={sortedComments}
-                onRemove={handleRemoveComment}
-              />
-            ) : (
-              <Loader />
-            )}
-          </div>
+          {comments.map((comments) => (
+            <div key={comments._id}>
+              {comments.userId === user && (
+                <div className={"commentUserProfile"}>
+                  <p>{comments.content}</p>
+                  <button
+                    onClick={() => handleRemoveComment(comments._id)}
+                    className={"btn"}
+                  >
+                    Удалить
+                  </button>
+                </div>
+              )}
+            </div>
+          ))}
         </>
+      ) : (
+        <Loader />
       )}
     </>
   )
 }
-
 export default CommentsUserList

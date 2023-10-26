@@ -20,14 +20,6 @@ const Masters = () => {
             <div className='masters__container'>
               <div className='masters__box'>
                 <img className='masters__img' src={girl1} alt='alt' />
-                <a
-                  className='masters__link link'
-                  href='#'
-                  data-bs-toggle='modal'
-                  data-bs-target='#exampleModal'
-                >
-                  Записаться <br /> к мастеру
-                </a>
               </div>
               <div className='masters__name'>
                 <p className='masters__fest-name'>Краснова Ирина</p>
@@ -38,14 +30,6 @@ const Masters = () => {
             <div className='masters__container'>
               <div className='masters__box'>
                 <img className='masters__img' src={girl2} alt='alt' />
-                <a
-                  className='masters__link link'
-                  href='#'
-                  data-bs-toggle='modal'
-                  data-bs-target='#exampleModal'
-                >
-                  Записаться <br /> к мастеру
-                </a>
               </div>
               <div className='masters__name'>
                 <p className='masters__fest-name'>Калилова Жанна</p>
@@ -56,14 +40,6 @@ const Masters = () => {
             <div className='masters__container'>
               <div className='masters__box'>
                 <img className='masters__img' src={girl3} alt='alt' />
-                <a
-                  className='masters__link link'
-                  href='#'
-                  data-bs-toggle='modal'
-                  data-bs-target='#exampleModal'
-                >
-                  Записаться <br /> к мастеру
-                </a>
               </div>
               <div className='masters__name'>
                 <p className='masters__fest-name'>Киселева Алина</p>
@@ -74,14 +50,6 @@ const Masters = () => {
             <div className='masters__container'>
               <div className='masters__box'>
                 <img className='masters__img' src={girl4} alt='alt' />
-                <a
-                  className='masters__link link'
-                  href='#'
-                  data-bs-toggle='modal'
-                  data-bs-target='#exampleModal'
-                >
-                  Записаться <br /> к мастеру
-                </a>
               </div>
               <div className='masters__name'>
                 <p className='masters__fest-name'>Иванова Елена</p>

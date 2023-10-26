@@ -1,6 +1,7 @@
 import React from "react"
 
 import nail from "../../../../assets/img/nail.png"
+import { ButtonBooking } from "../../../common/form/button"
 
 const Services = () => {
   return (
@@ -19,13 +20,7 @@ const Services = () => {
                   <p className='services__text'>
                     Аппаратный, комбинированный или классический.
                   </p>
-                  <button
-                    className='btn services__btn'
-                    data-bs-toggle='modal'
-                    data-bs-target='#exampleModal'
-                  >
-                    Записаться
-                  </button>
+                  <ButtonBooking className={"btn services__btn"} />
                 </div>
                 <div className='services__info info'>
                   <img className='services__img' src={nail} alt='маникюр' />
@@ -34,13 +29,7 @@ const Services = () => {
                     Гель-лак наносится в несколько слоев с использованием базы и
                     топа. Каждый слой полимеризуется в LED-лампе.
                   </p>
-                  <button
-                    className='btn services__btn'
-                    data-bs-toggle='modal'
-                    data-bs-target='#exampleModal'
-                  >
-                    Записаться
-                  </button>
+                  <ButtonBooking className={"btn services__btn"} />
                 </div>
                 <div className='services__info info'>
                   <img className='services__img' src={nail} alt='маникюр' />
@@ -49,13 +38,7 @@ const Services = () => {
                     Выполняется в одноразовых перчатках наполненных увлажняющим
                     лосьоном.
                   </p>
-                  <button
-                    className='btn services__btn'
-                    data-bs-toggle='modal'
-                    data-bs-target='#exampleModal'
-                  >
-                    Записаться
-                  </button>
+                  <ButtonBooking className={"btn services__btn"} />
                 </div>
               </div>
               <div className='services__box'>
@@ -65,13 +48,7 @@ const Services = () => {
                   <p className='services__text'>
                     Аппаратный, комбинированный или классический.
                   </p>
-                  <button
-                    className='btn services__btn'
-                    data-bs-toggle='modal'
-                    data-bs-target='#exampleModal'
-                  >
-                    Записаться
-                  </button>
+                  <ButtonBooking className={"btn services__btn"} />
                 </div>
                 <div className='services__info info'>
                   <img className='services__img' src={nail} alt='маникюр' />
@@ -80,13 +57,7 @@ const Services = () => {
                     Благодаря этой процедуре увлажнение кожи увеличивается на
                     80%, также выводит токсины и укрепляет суставы.
                   </p>
-                  <button
-                    className='btn services__btn'
-                    data-bs-toggle='modal'
-                    data-bs-target='#exampleModal'
-                  >
-                    Записаться
-                  </button>
+                  <ButtonBooking className={"btn services__btn"} />
                 </div>
               </div>
             </div>

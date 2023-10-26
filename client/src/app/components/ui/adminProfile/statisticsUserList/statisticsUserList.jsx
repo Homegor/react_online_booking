@@ -2,9 +2,12 @@ import React from "react"
 
 const StatisticsUserList = () => {
   return (
-    <div>
-      <p>Статистика пользователей</p>
-    </div>
+    <img
+      src={
+        "https://static.tildacdn.com/tild6333-3436-4065-a139-376633653564/Stranica-v-razrabotk.png"
+      }
+      alt={"404"}
+    />
   )
 }
 

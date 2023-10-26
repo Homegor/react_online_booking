@@ -1,6 +1,6 @@
 import httpService from "./http.service"
 
-const bookingEndPoint = "/booking"
+const bookingEndPoint = "booking/"
 
 const bookingService = {
   getBooking: async () => {
@@ -11,8 +11,8 @@ const bookingService = {
     const { data } = await httpService.post(bookingEndPoint, payload)
     return data
   },
-  removeBooking: async (id) => {
-    const { data } = await httpService.delete(bookingEndPoint + id)
+  removeBooking: async (bookingId) => {
+    const { data } = await httpService.delete(bookingEndPoint + bookingId)
     return data
   }
 }

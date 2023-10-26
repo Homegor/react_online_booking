@@ -3,6 +3,7 @@ import commentsReducer from "./slices/commentsSlice"
 import usersReducer from "./slices/userSlice"
 import mastersReducer from "./slices/masterSlice"
 import servicesReducer from "./slices/servicesSlice"
+import categoriesReducer from "./slices/categoriesSlice"
 
 const { combineReducers, configureStore } = require("@reduxjs/toolkit")
 
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
   comments: commentsReducer,
   users: usersReducer,
   masters: mastersReducer,
-  services: servicesReducer
+  services: servicesReducer,
+  categories: categoriesReducer
 })
 
 export function createStore() {

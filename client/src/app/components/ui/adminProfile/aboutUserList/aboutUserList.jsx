@@ -1,46 +1,66 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React, { useState } from "react"
 import {
-  getUsersList,
-  getCurrentUserId
+  getCurrentUserData,
+  getUsersLoadingStatus
 } from "../../../../store/slices/userSlice"
 import { useSelector } from "react-redux"
+import Modal from "../../../common/modal"
+import EditUserForm from "../../form/editForm/editUserForm"
+import { Button } from "../../../common/form/button"
+import Loader from "../../../common/loader/loader"
 
 const AboutUserList = () => {
-  const user = useSelector(getUsersList())
-  console.log("user", user)
-  const currentUserId = useSelector(getCurrentUserId())
-  console.log("currentUserId", currentUserId)
+  const currentUser = useSelector(getCurrentUserData())
+  const [modalActive, setModalActive] = useState(false)
+  const isLoading = useSelector(getUsersLoadingStatus())
+
+  const handeClick = () => {
+    setModalActive(true)
+  }
 
   return (
     <>
-      <h2>О вас</h2>
-      <div className='row user-info'>
-        {/*      <div className='col-6 col-md-4 user-room__request text-center p-2'>
-        <p>Фамилия/Имя</p>
-      </div>
-      <div className='col-12 col-md-8 user-room__info text-center p-2'>
-        <p>{user.name}</p>
-      </div>
-      <div className='col-6 col-md-4 user-room__request text-center p-2'>
-        <p>Пол</p>
-      </div>
-      <div className='col-12 col-md-8 text-center p-2'>
-        <p>{user.sex}</p>
-      </div>
-      <div className='col-6 col-md-4 user-room__request text-center p-2'>
-        <p>Номер телефона</p>
-      </div>
-      <div className='col-12 col-md-8 text-center p-2'>
-        <p>{user.phone}</p>
-      </div>*/}
-      </div>
+      {!isLoading ? (
+        <div className={"p-4"}>
+          <h2>О вас</h2>
+          <div className='row user-info'>
+            <div className='col-6 col-md-4 user-room__request text-center'>
+              <p>Имя / Фамилия</p>
+            </div>
+            <div className='col-12 col-md-8 user-room__info text-center'>
+              <p>{currentUser.name}</p>
+            </div>
+            <hr />
+            <div className='col-6 col-md-4 user-room__request text-center'>
+              <p>Номер телефона</p>
+            </div>
+            <div className='col-12 col-md-8 text-center'>
+              <p>{currentUser.phone}</p>
+            </div>
+            <hr />
+            <div className='col-6 col-md-4 user-room__request text-center'>
+              <p>Ваш Email</p>
+            </div>
+            <div className='col-12 col-md-8 text-center'>
+              <p>{currentUser.email}</p>
+            </div>
+            <hr />
+          </div>
+          <Button
+            className={"btn login-register-form__btn mb-3 float-end"}
+            onClick={handeClick}
+            name={"Редактировать"}
+          ></Button>
+        </div>
+      ) : (
+        <Loader />
+      )}
+
+      <Modal active={modalActive} setActive={setModalActive}>
+        <EditUserForm />
+      </Modal>
     </>
   )
-}
-
-AboutUserList.propTypes = {
-  user: PropTypes.object
 }
 
 export default AboutUserList

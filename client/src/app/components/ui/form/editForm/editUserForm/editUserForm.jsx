@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react"
-import TextField from "../../../common/form/textField"
-import RadioField from "../../../common/form/radio"
+import { useDispatch, useSelector } from "react-redux"
 import {
   getCurrentUserData,
   updateUser
-} from "../../../../store/slices/userSlice"
-import { useDispatch, useSelector } from "react-redux"
-import Loader from "../../../common/loader/loader"
+} from "../../../../../store/slices/userSlice"
+import TextField from "../../../../common/form/textField"
+import Loader from "../../../../common/loader/loader"
 
-const EditUsrList = () => {
+const EditUserForm = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [data, setData] = useState()
   const currentUser = useSelector(getCurrentUserData())
@@ -44,7 +43,7 @@ const EditUsrList = () => {
   }
   return (
     <>
-      <h2>Редактирование</h2>
+      <h2 className={"m-2"}>Редактировать пользователя</h2>
       {!isLoading ? (
         <form onSubmit={handleSubmit}>
           <TextField
@@ -68,18 +67,8 @@ const EditUsrList = () => {
             onChange={handleChange}
             label={"Номер телефона"}
           />
-          <RadioField
-            options={[
-              { name: "Женский", value: "male" },
-              { name: "Мужской", value: "female" }
-            ]}
-            value={data.sex}
-            name={"sex"}
-            label={"Выберете ваши пол"}
-            onChange={handleChange}
-          />
           <button type='submit' className='btn login-register-form__btn mb-3'>
-            Редактировать
+            Изменить
           </button>
         </form>
       ) : (
@@ -89,4 +78,4 @@ const EditUsrList = () => {
   )
 }
 
-export default EditUsrList
+export default EditUserForm

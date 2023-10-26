@@ -28,9 +28,9 @@ const CommentsPage = () => {
       <div className={"container"}>
         <h2>Спасибо за отзывы</h2>
         {sortedComments.length > 0 && (
-          <div className='card mb-3 hero mt-0'>
+          <div className='card mb-3 mt-4'>
             <div className='card-body '>
-              {isLoading ? (
+              {!isLoading ? (
                 <CommentList comments={sortedComments} />
               ) : (
                 <Loader />

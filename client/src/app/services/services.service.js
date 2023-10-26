@@ -1,6 +1,6 @@
 import httpService from "./http.service"
 
-const servicesEndPoint = "/services"
+const servicesEndPoint = "services/"
 
 const servicesService = {
   getServices: async () => {
@@ -12,7 +12,7 @@ const servicesService = {
     return data
   },
   removeServices: async (serviceId) => {
-    const { data } = await httpService.patch(servicesEndPoint + serviceId._id)
+    const { data } = await httpService.delete(servicesEndPoint + serviceId)
     return data
   }
 }

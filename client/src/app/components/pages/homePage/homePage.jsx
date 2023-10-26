@@ -20,19 +20,12 @@ const HomePage = () => {
       </div>
       <main>
         <AboutUs />
-
         <Benefit />
-
         <Services />
-
         <Prise />
-
         <Masters />
-
         <Gallery />
-
         <Brands />
-
         <ContactUs />
       </main>
       <Outlet />

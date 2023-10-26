@@ -89,7 +89,7 @@ export const signIn =
       const data = await authService.login({ email, password })
       localStorageService.setTokens(data)
       dispatch(authRequestSuccess({ userId: data.userId }))
-      history.push(redirect || "/userPage")
+      history.push(redirect)
     } catch (error) {
       const { code, message } = error.response.data.error
       if (code === 400) {
@@ -131,7 +131,7 @@ export const updateUser = (payload) => async (dispatch) => {
   try {
     const { content } = await userService.update(payload)
     dispatch(userUpdateSuccess(content))
-    history.push(`/users/${content._id}`)
+    history.push(`/userPage/${content._id}`)
   } catch (error) {
     dispatch(userUpdateFailed(error.message))
   }
@@ -140,12 +140,13 @@ export const updateUser = (payload) => async (dispatch) => {
 export const getUsersList = () => (state) => state.users.entities
 
 export const getCurrentUserData = () => (state) => {
-  return state.users.entities
-    ? state.users.entities.find((u) => u._id === state.users.auth.userId)
-    : null
+  if (state.users.auth) {
+    return state.users.entities
+      ? state.users.entities.find((u) => u._id === state.users.auth.userId)
+      : null
+  }
 }
 export const getUserById = (userId) => (state) => {
-  console.log(userId)
   if (state.users.entities) {
     return state.users.entities.find((u) => u._id === userId)
   }

@@ -5,7 +5,6 @@ import TextField from "../../../../common/form/textField"
 const UserListBookingForm = (props) => {
   const [data, setData] = useState({
     name: "",
-    firstName: "",
     phone: "",
     date: ""
   })
@@ -27,15 +26,6 @@ const UserListBookingForm = (props) => {
         </div>
         <div className={"div-input m-2"}>
           <TextField
-            name={"firstName"}
-            value={data.firstName}
-            label={"Фамилия"}
-            onChange={handleChange}
-          />
-        </div>
-        <div className={"div-input m-2"}>
-          <TextField
-            type={"phone"}
             name={"phone"}
             value={data.phone}
             label={"Телефон"}

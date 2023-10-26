@@ -1,6 +1,7 @@
 const express = require("express");
 const Masters = require("../models/Masters");
 const auth = require("../middleware/auth.middleware");
+
 const router = express.Router({ mergeParams: true });
 
 router.get("/", async (req, res) => {

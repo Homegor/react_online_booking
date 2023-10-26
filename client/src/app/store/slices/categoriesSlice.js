@@ -6,8 +6,7 @@ const categoriesSlice = createSlice({
   initialState: {
     entities: null,
     isLoading: true,
-    error: null,
-    lastFetch: null
+    error: null
   },
   reducers: {
     categoriesRequested: (state) => {
@@ -15,7 +14,6 @@ const categoriesSlice = createSlice({
     },
     categoriesReceived: (state, action) => {
       state.entities = action.payload
-      state.lastFetch = Date.now()
       state.isLoading = false
     },
     categoriesRequestFiled: (state, action) => {

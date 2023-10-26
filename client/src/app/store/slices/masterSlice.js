@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 import mastersService from "../../services/masters.service"
 
-const masterSlice = createSlice({
+const mastersSlice = createSlice({
   name: "masters",
   initialState: {
     entities: null,
@@ -23,13 +23,13 @@ const masterSlice = createSlice({
   }
 })
 
-const { reducer: mastersReducer, actions } = masterSlice
+const { reducer: mastersReducer, actions } = mastersSlice
 const { mastersRequested, mastersReceived, mastersRequestFiled } = actions
 
-export const loadMastersList = () => async (dispatch) => {
+export const loadMastersList = (id) => async (dispatch, getState) => {
   dispatch(mastersRequested())
   try {
-    const { content } = await mastersService.getMasters()
+    const { content } = await mastersService.getMasters(id)
     dispatch(mastersReceived(content))
   } catch (error) {
     dispatch(mastersRequestFiled(error.message))
@@ -37,10 +37,10 @@ export const loadMastersList = () => async (dispatch) => {
 }
 
 export const getMasters = () => (state) => state.masters.entities
-export const getMastersLoadingStatus = () => (state) => state.masters.isLoading
+export const getMastersLoading = () => (state) => state.masters.isLoading
 export const getMastersById = (id) => (state) => {
   if (state.masters.entities) {
-    return state.masters.entities.find((m) => m._id === id)
+    return state.masters.entities.find((c) => c._id === id)
   }
 }
 

@@ -1,29 +1,35 @@
 import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { useDispatch, useSelector } from "react-redux"
-import {
-  getIsLoggedIn,
-  getUsersLoadingStatus,
-  loadUsersList
-} from "../../../store/slices/userSlice"
+import { getIsLoggedIn, loadUsersList } from "../../../store/slices/userSlice"
 import { loadingBookingList } from "../../../store/slices/bookingSlice"
 import { loadMastersList } from "../../../store/slices/masterSlice"
 import { loadCategoriesList } from "../../../store/slices/categoriesSlice"
 import Loader from "../../common/loader/loader"
+import {
+  getServicesLoadingStatus,
+  loadServicesList
+} from "../../../store/slices/servicesSlice"
+import { loadCommentsList } from "../../../store/slices/commentsSlice"
 
 const AppLoader = ({ children }) => {
   const dispatch = useDispatch()
   const isLoggedIn = useSelector(getIsLoggedIn())
-  const usersStatusLoading = useSelector(getUsersLoadingStatus())
+  const serviceStatus = useSelector(getServicesLoadingStatus())
 
   useEffect(() => {
-    dispatch(loadUsersList())
-    dispatch(loadingBookingList())
-    dispatch(loadMastersList())
     dispatch(loadCategoriesList())
+    dispatch(loadServicesList())
+    dispatch(loadCommentsList())
+    dispatch(loadUsersList())
+
+    if (isLoggedIn) {
+      dispatch(loadingBookingList())
+      dispatch(loadMastersList())
+    }
   }, [isLoggedIn])
 
-  if (usersStatusLoading) return <Loader />
+  if (serviceStatus) return <Loader />
   return children
 }
 

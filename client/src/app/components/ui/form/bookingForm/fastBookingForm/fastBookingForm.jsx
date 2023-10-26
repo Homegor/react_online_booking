@@ -2,15 +2,17 @@ import React, { useEffect, useState } from "react"
 import { validator } from "../../../../../utils/validator"
 import validatorConfig from "./validConfig"
 import TextField from "../../../../common/form/textField"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { createBooking } from "../../../../../store/slices/bookingSlice"
 import Modal from "../../../../common/modal"
+import { getIsLoggedIn } from "../../../../../store/slices/userSlice"
 
 const FastBookingForm = () => {
   const [data, setData] = useState({ name: "", phone: "+7" })
   const [errors, setErrors] = useState({})
   const [modalActive, setModalActive] = useState(false)
   const dispatch = useDispatch()
+  const isLogin = useSelector(getIsLoggedIn())
 
   useEffect(() => {
     validate()
@@ -34,7 +36,7 @@ const FastBookingForm = () => {
     const newData = {
       ...data
     }
-    dispatch(createBooking(newData))
+    dispatch(createBooking({ ...newData }))
     clearForm()
     setModalActive(true)
   }
@@ -63,13 +65,20 @@ const FastBookingForm = () => {
           onChange={handleChange}
           error={errors.phone}
         />
-        <button
-          type={"submit"}
-          className={"btn form__button"}
-          name={"Записаться"}
-        >
-          Записаться
-        </button>
+        {!isLogin ? (
+          <p className={"text-center"}>
+            Пожалуйста зарегистрируйтесь для записи
+          </p>
+        ) : (
+          <button
+            type={"submit"}
+            className={"btn form__button"}
+            name={"Записаться"}
+          >
+            Записаться
+          </button>
+        )}
+
         <p className='form__politic'>
           Нажимая на кнопку вы соглашаетесь с<br />
           <a className='form__politic-text politic' href='#' target='_blank'>

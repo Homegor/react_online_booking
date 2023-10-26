@@ -1,3 +1,3 @@
 import Button from "./button"
-
-export default Button
+import ButtonBooking from "./buttonBooking"
+export { Button, ButtonBooking }

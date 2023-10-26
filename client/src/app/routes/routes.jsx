@@ -17,15 +17,7 @@ import AllUsersList from "../components/ui/adminProfile/allUsersList"
 export const Routes = (isLoggedIn, location) => [
   {
     path: "/",
-    element: <Home />,
-    children: [
-      { path: "", element: "" },
-      { path: "", element: "" },
-      { path: "", element: "" },
-      { path: "", element: "" },
-      { path: "", element: "" },
-      { path: "", element: "" }
-    ]
+    element: <Home />
   },
   {
     path: "booking",
@@ -41,7 +33,7 @@ export const Routes = (isLoggedIn, location) => [
     children: [
       {
         path: "",
-        element: <Navigate to={"auth/login"} />
+        element: <Navigate to={"login"} />
       },
       { path: "login", element: <LoginPage /> },
       { path: "register", element: <RegisterPage /> },
@@ -50,7 +42,11 @@ export const Routes = (isLoggedIn, location) => [
   },
   {
     path: "userPage",
-    element: <AdminPage />,
+    element: isLoggedIn ? (
+      <AdminPage />
+    ) : (
+      <Navigate to={"auth/login"} state={{ referrer: location }} />
+    ),
     children: [
       {
         path: ":userId",
@@ -69,6 +65,7 @@ export const Routes = (isLoggedIn, location) => [
         ]
       }
     ]
-  }
+  },
+  { path: "*", element: <Navigate to={isLoggedIn ? "/userPage" : "/"} /> }
 ]
 export default Routes

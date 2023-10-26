@@ -86,7 +86,6 @@ export const removeBooking = (id) => async (dispatch) => {
   dispatch(removeBookingRequested())
   try {
     const { content } = await bookingService.removeBooking(id)
-    console.log(content)
     if (!content) {
       dispatch(bookingRemoved(id))
     }

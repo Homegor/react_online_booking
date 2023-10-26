@@ -1,15 +1,20 @@
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getCategories } from "../../../../store/slices/categoriesSlice"
+import {
+  getCategories,
+  getCategoriesLoading
+} from "../../../../store/slices/categoriesSlice"
 import SelectField from "../../../common/form/selectField"
-import Button from "../../../common/form/button"
+import { Button } from "../../../common/form/button"
 import TextField from "../../../common/form/textField"
 import { createServices } from "../../../../store/slices/servicesSlice"
 import Loader from "../../../common/loader/loader"
+import { PriseAdminList } from "../../../common/prise"
 
 const SettingsUserList = () => {
   const [data, setData] = useState({ category: "", name: "", prise: "" })
   const dispatch = useDispatch()
+  const isLoading = useSelector(getCategoriesLoading())
 
   const category = useSelector(getCategories())
   const categoryList = category.map((c) => ({
@@ -23,14 +28,20 @@ const SettingsUserList = () => {
       [target.name]: target.value
     }))
   }
+
+  const clearForm = () => {
+    setData({ category: data.category, name: "", prise: "" })
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(createServices({ ...data }))
+    clearForm()
   }
 
   return (
     <>
-      {categoryList ? (
+      {!isLoading ? (
         <>
           <h2>Настройки</h2>
           <form onSubmit={handleSubmit}>
@@ -60,7 +71,10 @@ const SettingsUserList = () => {
             </div>
           </form>
           <hr />
-          <h3 className={"text-center"}>Prise</h3>
+          <h3 className={"text-center mt-2"}>Цены на услуги</h3>
+          <div className={"mt-3"}>
+            <PriseAdminList />
+          </div>
         </>
       ) : (
         <Loader />

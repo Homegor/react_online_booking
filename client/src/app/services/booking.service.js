@@ -5,12 +5,10 @@ const bookingEndPoint = "booking/"
 const bookingService = {
   getBooking: async () => {
     const { data } = await httpService.get(bookingEndPoint)
-    console.log(data)
     return data
   },
   createBooking: async (payload) => {
     const { data } = await httpService.post(bookingEndPoint, payload)
-    console.log(payload)
     return data
   },
   removeBooking: async (bookingId) => {

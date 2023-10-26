@@ -14,11 +14,13 @@ router.get("/", async (req, res) => {
     });
   }
 });
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   try {
     const newBooking = await Booking.create({
       ...req.body,
+      userId: req.user._id,
     });
+    console.log(newBooking);
     res.status(201).send(newBooking);
   } catch (e) {
     res.status(500).json({

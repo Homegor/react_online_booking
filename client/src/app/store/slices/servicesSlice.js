@@ -59,11 +59,13 @@ export const createServices = (payload) => async (dispatch) => {
     dispatch(servicesRequestFiled(error.message))
   }
 }
-export const removedServices = (servicesId) => async (dispatch) => {
+export const removeServices = (id) => async (dispatch) => {
   dispatch(removeServicesRequested())
   try {
-    const { content } = await servicesService.removeServices(servicesId)
-    dispatch(servicesRemoved(content))
+    const { content } = await servicesService.removeServices(id)
+    if (!content) {
+      dispatch(servicesRemoved(id))
+    }
   } catch (error) {
     dispatch(servicesRequestFiled(error.message))
   }

@@ -29,12 +29,10 @@ router.post("/", auth, async (req, res) => {
 router.delete("/:serviceId", auth, async (req, res) => {
   try {
     const { serviceId } = req.params;
-    const removedService = await Services.findById(serviceId);
-    const currentUser = removedService.userId.toString() === req.user._id;
-    const isAdmin = req.userRole === "admin";
+    const removeService = await Services.findById(serviceId);
 
-    if (currentUser || isAdmin) {
-      await removedService.deleteOne();
+    if (removeService._id.toString() === serviceId) {
+      await removeService.deleteOne();
       return res.send(null);
     } else {
       res.status(401).json({ message: "Unauthorized" });

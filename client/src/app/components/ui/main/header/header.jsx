@@ -1,16 +1,12 @@
-import React, { useState } from "react"
+import React from "react"
 import girl from "../../../../assets/img/girl.png"
 import Icons from "../../../common/icons"
 import vk from "../../../../assets/img/vk.png"
 import yt from "../../../../assets/img/yt.png"
 import inst from "../../../../assets/img/inst.png"
-import Button from "../../../common/form/button"
-import Modal from "../../../common/modal"
-import FastBookingForm from "../../form/bookingForm/fastBookingForm"
+import { ButtonBooking } from "../../../common/form/button"
 
 const Header = () => {
-  const [modalActive, setModalActive] = useState(false)
-
   return (
     <>
       <header>
@@ -20,11 +16,7 @@ const Header = () => {
               Создай свой образ <br /> вместе с нами
             </p>
             <p className='hero__subtitle'>Идеальный образ за 60 минут</p>
-            <Button
-              className={"hero__btn btn"}
-              name={"Записаться онлайн"}
-              onClick={() => setModalActive(true)}
-            />
+            <ButtonBooking className={"hero__btn btn"} />
           </div>
           <div className='hero__media'>
             <img className='hero__girl' src={girl} alt='фото' />
@@ -38,15 +30,12 @@ const Header = () => {
                 <Icons srcImg={yt} url={"#"} altName={"YouTube"} />
               </li>
               <li>
-                <Icons srcImg={inst} url={"#"} altName={"Inst"} />{" "}
+                <Icons srcImg={inst} url={"#"} altName={"Inst"} />
               </li>
             </ul>
           </div>
         </div>
       </header>
-      <Modal active={modalActive} setActive={setModalActive}>
-        <FastBookingForm />
-      </Modal>
     </>
   )
 }

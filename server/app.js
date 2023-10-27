@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const config = require("config");
+const path = require("path");
 const chalk = require("chalk");
 const cors = require("cors");
 const initDatabase = require("./startUp/initDatabase");
@@ -17,6 +18,16 @@ app.use("/api", routes);
 
 // homegor14
 // OmGMxpxoDgI9d5iS
+
+if (process.env.NODE_ENV === "production") {
+  app.use("/", express.static(path.join(__dirname, "client")));
+
+  const indexPath = path.join(__dirname, "client", "index.html");
+
+  app.get("*", (req, res) => {
+    res.sendFile(indexPath);
+  });
+}
 
 async function start() {
   try {

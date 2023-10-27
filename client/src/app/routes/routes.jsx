@@ -45,7 +45,7 @@ export const Routes = (isLoggedIn, location) => [
     element: isLoggedIn ? (
       <AdminPage />
     ) : (
-      <Navigate to={"auth/login"} state={{ referrer: location }} />
+      <Navigate to={"/"} state={{ referrer: location }} />
     ),
     children: [
       {
@@ -66,6 +66,6 @@ export const Routes = (isLoggedIn, location) => [
       }
     ]
   },
-  { path: "*", element: <Navigate to={isLoggedIn ? "/" : "/auth/login"} /> }
+  { path: "*", element: <Navigate to={!isLoggedIn ? "/auth/login" : "/"} /> }
 ]
 export default Routes

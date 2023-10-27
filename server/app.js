@@ -4,10 +4,9 @@ const config = require("config");
 const path = require("path");
 const chalk = require("chalk");
 const cors = require("cors");
-const initDatabase = require("./startUp/initDatabase");
+const initDataBase = require("./startUp/initDataBase");
 const routes = require("./routes/index");
 
-const PORT = config.get("port") ?? 8080;
 const app = express();
 
 app.use(express.json());
@@ -15,6 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use("/api", routes);
+const PORT = process.env.PORT || config.get("port") || 8080;
 
 // homegor14
 // OmGMxpxoDgI9d5iS
@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === "production") {
 async function start() {
   try {
     mongoose.connection.once("open", () => {
-      initDatabase();
+      initDataBase();
     });
     await mongoose.connect(config.get("mongoUri"));
     console.log(chalk.green("mongo started"));

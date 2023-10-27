@@ -1,40 +1,20 @@
 import React from "react"
-import { useDispatch, useSelector } from "react-redux"
-import {
-  getServicesList,
-  getServicesLoadingStatus,
-  removeServices
-} from "../../../store/slices/servicesSlice"
+import { useSelector } from "react-redux"
+import { getServicesLoadingStatus } from "../../../store/slices/servicesSlice"
 import Loader from "../loader/loader"
 import Accordion from "react-bootstrap/Accordion"
+import {
+  FilterBrows,
+  FilterCosmetology,
+  FilterHaircut,
+  FilterMakeup,
+  FilterMassage,
+  FilterNail
+} from "../../ui/filter/adminPage"
 
 const PriseAdminList = () => {
-  const services = useSelector(getServicesList())
-  const dispatch = useDispatch()
   const isLoading = useSelector(getServicesLoadingStatus())
 
-  const handleRemoveBooking = (id) => {
-    dispatch(removeServices(id))
-  }
-
-  const filterHaircut = services.filter(
-    (s) => s.category === "6517dc564e155654cfe4f418"
-  )
-  const filterCosmetology = services.filter(
-    (s) => s.category === "6517dc564e155654cfe4f419"
-  )
-  const filterNail = services.filter(
-    (s) => s.category === "6517dc564e155654cfe4f41a"
-  )
-  const filterMakeup = services.filter(
-    (s) => s.category === "6517dc564e155654cfe4f41b"
-  )
-  const filterBrows = services.filter(
-    (s) => s.category === "6517dc564e155654cfe4f41c"
-  )
-  const filterMassage = services.filter(
-    (s) => s.category === "6517dc564e155654cfe4f41d"
-  )
   return (
     <>
       {!isLoading ? (
@@ -43,28 +23,7 @@ const PriseAdminList = () => {
             <Accordion.Header>Стрижка и укладка</Accordion.Header>
             <Accordion.Body>
               <div className={"booking"}>
-                {filterHaircut.map((h) => (
-                  <div key={h._id} className={"booking__info"}>
-                    <p>
-                      Название:
-                      <span className={"booking__userInfo"}>{h.name}</span>
-                    </p>
-                    <p>
-                      Цена:
-                      <span className={"booking__userInfo"}>
-                        {h.prise} &#x20bd;
-                      </span>
-                    </p>
-                    <div className='booking__click'>
-                      <button
-                        onClick={() => handleRemoveBooking(h._id)}
-                        className={"btn booking__btn mt-3"}
-                      >
-                        Удалить
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                <FilterHaircut />
               </div>
             </Accordion.Body>
           </Accordion.Item>
@@ -73,28 +32,7 @@ const PriseAdminList = () => {
             <Accordion.Header>Косметология</Accordion.Header>
             <Accordion.Body>
               <div className={"booking"}>
-                {filterCosmetology.map((h) => (
-                  <div key={h._id} className={"booking__info"}>
-                    <p>
-                      Название:
-                      <span className={"booking__userInfo"}>{h.name}</span>
-                    </p>
-                    <p>
-                      Цена:
-                      <span className={"booking__userInfo"}>
-                        {h.prise} &#x20bd;
-                      </span>
-                    </p>
-                    <div className='booking__click'>
-                      <button
-                        onClick={() => handleRemoveBooking(h._id)}
-                        className={"btn booking__btn mt-3"}
-                      >
-                        Удалить
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                <FilterCosmetology />
               </div>
             </Accordion.Body>
           </Accordion.Item>
@@ -102,28 +40,7 @@ const PriseAdminList = () => {
             <Accordion.Header>Маникюр и педикюр</Accordion.Header>
             <Accordion.Body>
               <div className={"booking"}>
-                {filterNail.map((h) => (
-                  <div key={h._id} className={"booking__info"}>
-                    <p>
-                      Название:
-                      <span className={"booking__userInfo"}>{h.name}</span>
-                    </p>
-                    <p>
-                      Цена:
-                      <span className={"booking__userInfo"}>
-                        {h.prise} &#x20bd;
-                      </span>
-                    </p>
-                    <div className='booking__click'>
-                      <button
-                        onClick={() => handleRemoveBooking(h._id)}
-                        className={"btn booking__btn mt-3"}
-                      >
-                        Удалить
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                <FilterNail />
               </div>
             </Accordion.Body>
           </Accordion.Item>
@@ -131,28 +48,7 @@ const PriseAdminList = () => {
             <Accordion.Header>Макияж</Accordion.Header>
             <Accordion.Body>
               <div className={"booking"}>
-                {filterMakeup.map((h) => (
-                  <div key={h._id} className={"booking__info"}>
-                    <p>
-                      Название:
-                      <span className={"booking__userInfo"}>{h.name}</span>
-                    </p>
-                    <p>
-                      Цена:
-                      <span className={"booking__userInfo"}>
-                        {h.prise} &#x20bd;
-                      </span>
-                    </p>
-                    <div className='booking__click'>
-                      <button
-                        onClick={() => handleRemoveBooking(h._id)}
-                        className={"btn booking__btn mt-3"}
-                      >
-                        Удалить
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                <FilterMakeup />
               </div>
             </Accordion.Body>
           </Accordion.Item>
@@ -160,28 +56,7 @@ const PriseAdminList = () => {
             <Accordion.Header>Брови и ресницы</Accordion.Header>
             <Accordion.Body>
               <div className={"booking"}>
-                {filterBrows.map((h) => (
-                  <div key={h._id} className={"booking__info"}>
-                    <p>
-                      Название:
-                      <span className={"booking__userInfo"}>{h.name}</span>
-                    </p>
-                    <p>
-                      Цена:
-                      <span className={"booking__userInfo"}>
-                        {h.prise} &#x20bd;
-                      </span>
-                    </p>
-                    <div className='booking__click'>
-                      <button
-                        onClick={() => handleRemoveBooking(h._id)}
-                        className={"btn booking__btn mt-3"}
-                      >
-                        Удалить
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                <FilterBrows />
               </div>
             </Accordion.Body>
           </Accordion.Item>
@@ -189,28 +64,7 @@ const PriseAdminList = () => {
             <Accordion.Header>Массаж</Accordion.Header>
             <Accordion.Body>
               <div className={"booking"}>
-                {filterMassage.map((h) => (
-                  <div key={h._id} className={"booking__info"}>
-                    <p>
-                      Название:
-                      <span className={"booking__userInfo"}>{h.name}</span>
-                    </p>
-                    <p>
-                      Цена:
-                      <span className={"booking__userInfo"}>
-                        {h.prise} &#x20bd;
-                      </span>
-                    </p>
-                    <div className='booking__click'>
-                      <button
-                        onClick={() => handleRemoveBooking(h._id)}
-                        className={"btn booking__btn mt-3"}
-                      >
-                        Удалить
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                <FilterMassage />
               </div>
             </Accordion.Body>
           </Accordion.Item>

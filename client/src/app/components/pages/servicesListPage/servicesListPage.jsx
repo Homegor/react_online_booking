@@ -6,6 +6,7 @@ import { getMasters } from "../../../store/slices/masterSlice"
 import TextField from "../../common/form/textField"
 import { Button } from "../../common/form/button"
 import { createBooking } from "../../../store/slices/bookingSlice"
+import Modal from "../../common/modal"
 
 const ServicesListPage = () => {
   const [data, setData] = useState({
@@ -14,6 +15,8 @@ const ServicesListPage = () => {
     masters: "",
     services: ""
   })
+  const [modalActive, setModalActive] = useState(false)
+
   const dispatch = useDispatch()
 
   const category = useSelector(getCategories())
@@ -28,6 +31,10 @@ const ServicesListPage = () => {
     value: m.name
   }))
 
+  const clearForm = () => {
+    setData({ name: "", phone: "", masters: "", services: "" })
+  }
+
   const handleChange = (target) => {
     setData((prevState) => ({
       ...prevState,
@@ -37,6 +44,8 @@ const ServicesListPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(createBooking({ ...data }))
+    clearForm()
+    setModalActive(true)
   }
   return (
     <>
@@ -89,6 +98,12 @@ const ServicesListPage = () => {
             <Button name={"Добавить"} className={"btn btn-primary"} />
           </div>
         </form>
+        <Modal active={modalActive} setActive={setModalActive}>
+          <p>
+            Спасибо за запись. С вами свяжутся для уточнения даты и времени в
+            течении 15 минут!
+          </p>
+        </Modal>
       </section>
     </>
   )

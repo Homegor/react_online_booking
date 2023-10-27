@@ -1,5 +1,5 @@
 import React from "react"
-import { PriseList } from "../../../common/prise"
+import { PriseHomeList } from "../../../common/prise"
 
 const Prise = () => {
   return (
@@ -8,7 +8,7 @@ const Prise = () => {
         <div className='price__information'>
           <p className='price__title title'>Услуги и цены</p>
         </div>
-        <PriseList />
+        <PriseHomeList />
       </div>
     </section>
   )

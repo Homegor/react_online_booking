@@ -10,9 +10,9 @@ import Login from "../layout/login"
 import { Navigate, Outlet } from "react-router-dom"
 import LoginPage from "../components/pages/loginPage"
 import RegisterPage from "../components/pages/registerPage"
-import AdminPage from "../components/pages/adminPage/adminPage"
 import CommentsUserList from "../components/ui/adminProfile/commentsUserList"
 import AllUsersList from "../components/ui/adminProfile/allUsersList"
+import AdminPage from "../components/pages/adminPage/adminPage"
 
 export const Routes = (isLoggedIn, location) => [
   {
@@ -21,7 +21,7 @@ export const Routes = (isLoggedIn, location) => [
   },
   {
     path: "booking",
-    element: <ServicesListPage />
+    element: isLoggedIn ? <ServicesListPage /> : <Navigate to={"/auth/login"} />
   },
   {
     path: "comments",
@@ -33,11 +33,11 @@ export const Routes = (isLoggedIn, location) => [
     children: [
       {
         path: "",
-        element: <Navigate to={"login"} />
+        element: <Navigate to={"/login"} />
       },
       { path: "login", element: <LoginPage /> },
       { path: "register", element: <RegisterPage /> },
-      { path: "*", element: <Navigate to={"auth/login"} /> }
+      { path: "*", element: <Navigate to={"/auth/login"} /> }
     ]
   },
   {
@@ -66,6 +66,6 @@ export const Routes = (isLoggedIn, location) => [
       }
     ]
   },
-  { path: "*", element: <Navigate to={isLoggedIn ? "/userPage" : "/"} /> }
+  { path: "*", element: <Navigate to={isLoggedIn ? "/" : "/auth/login"} /> }
 ]
 export default Routes

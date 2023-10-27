@@ -1,4 +1,4 @@
-import PriseList from "./priseList"
+import PriseHomeList from "./priseHomeList"
 import PriseAdminList from "./priseAdminList"
 
-export { PriseList, PriseAdminList }
+export { PriseHomeList, PriseAdminList }

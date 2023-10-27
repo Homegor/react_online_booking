@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import TextField from "../../../common/form/textField"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import validConfig from "../registerForm/validConfig"
 import {
@@ -9,15 +9,16 @@ import {
   signIn
 } from "../../../../store/slices/userSlice"
 import { validator } from "../../../../utils/validator"
+import { createMemoryHistory } from "history"
 
 const LoginForm = () => {
-  const [data, setData] = useState({ email: "", password: "", stayOn: false })
+  const [data, setData] = useState({ email: "", password: "" })
   const [errors, setErrors] = useState({})
   const navigate = useNavigate()
-  const location = useLocation()
   const loginError = useSelector(getAuthErrors())
   const dispatch = useDispatch()
   const currentUser = useSelector(getCurrentUserData())
+  const history = createMemoryHistory()
 
   const validate = () => {
     const errors = validator(data, validConfig)
@@ -31,12 +32,13 @@ const LoginForm = () => {
   const handleChange = (target) => {
     setData((prevState) => ({ ...prevState, [target.name]: target.value }))
   }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const isValid = validate()
     if (!isValid) return
-    const redirect = location.state
-      ? location.state.referrer.pathname
+    const redirect = history.location.state
+      ? history.location.state.referrer.pathname
       : navigate(`/userPage/${currentUser}/about`)
     dispatch(signIn({ payload: data, redirect }))
   }

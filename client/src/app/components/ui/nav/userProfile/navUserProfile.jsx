@@ -28,9 +28,9 @@ const NavUserProfile = () => {
       <li>
         <Link
           className='menu__item user-room__menu-item '
-          to={`/userPage/${currentUserId}/allUsers`}
+          to={`/userPage/${currentUserId}/masters`}
         >
-          Все посетители
+          Наши мастера
         </Link>
       </li>
       <li>

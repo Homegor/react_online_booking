@@ -1,65 +1,50 @@
 import React from "react"
 
-import girl1 from "../../../../assets/img/girl_1.png"
-import girl2 from "../../../../assets/img/girl_2.png"
-import girl3 from "../../../../assets/img/girl_3.png"
-import girl4 from "../../../../assets/img/girl_4.png"
+import { useSelector } from "react-redux"
+import {
+  getMasters,
+  getMastersLoading
+} from "../../../../store/slices/masterSlice"
+import Loader from "../../../common/loader/loader"
 
 const Masters = () => {
+  const isLoading = useSelector(getMastersLoading())
+  const mastersList = useSelector(getMasters())
+
   return (
     <section className={"mw full"}>
-      <div className='masters'>
-        <div className='master__container'>
-          <div className='masters__header'>
-            <p className='masters__title title'>Мастера</p>
-            <p className='masters__subtitle'>
-              Дружная команда настоящих профессионалов
-            </p>
-          </div>
-          <div className='masters__info'>
-            <div className='masters__container'>
-              <div className='masters__box'>
-                <img className='masters__img' src={girl1} alt='alt' />
-              </div>
-              <div className='masters__name'>
-                <p className='masters__fest-name'>Краснова Ирина</p>
-                <p className='masters__specialties'>Мастер ногтевого сервиса</p>
-                <p className='masters__experience'>опыт работы 5 лет</p>
-              </div>
+      {!isLoading ? (
+        <div className='masters'>
+          <div className='master__container'>
+            <div className='masters__header'>
+              <p className='masters__title title'>Мастера</p>
+              <p className='masters__subtitle'>
+                Дружная команда настоящих профессионалов
+              </p>
             </div>
-            <div className='masters__container'>
-              <div className='masters__box'>
-                <img className='masters__img' src={girl2} alt='alt' />
-              </div>
-              <div className='masters__name'>
-                <p className='masters__fest-name'>Калилова Жанна</p>
-                <p className='masters__specialties'>Визажист-стилист</p>
-                <p className='masters__experience'>опыт работы 5 лет</p>
-              </div>
-            </div>
-            <div className='masters__container'>
-              <div className='masters__box'>
-                <img className='masters__img' src={girl3} alt='alt' />
-              </div>
-              <div className='masters__name'>
-                <p className='masters__fest-name'>Киселева Алина</p>
-                <p className='masters__specialties'>Парикмахер</p>
-                <p className='masters__experience'>опыт работы 5 лет</p>
-              </div>
-            </div>
-            <div className='masters__container'>
-              <div className='masters__box'>
-                <img className='masters__img' src={girl4} alt='alt' />
-              </div>
-              <div className='masters__name'>
-                <p className='masters__fest-name'>Иванова Елена</p>
-                <p className='masters__specialties'>Мастер ногтевого сервиса</p>
-                <p className='masters__experience'>опыт работы 5 лет</p>
-              </div>
+            <div className='masters__info'>
+              {mastersList.map((u) => (
+                <div key={u._id} className='masters__container'>
+                  <div className='masters__box'>
+                    <img className='masters__img' src={u.image} alt='alt' />
+                  </div>
+                  <div className='masters__name'>
+                    <p className='masters__fest-name'>{u.name}</p>
+                    <p className='masters__specialties'>
+                      {u.service.toUpperCase()}
+                    </p>
+                    <p className='masters__experience'>
+                      опыт работы {u.experience} лет
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <Loader />
+      )}
     </section>
   )
 }

@@ -8,7 +8,8 @@ const schema = new Schema(
     image: { type: String },
     experience: { type: Number },
     birthdate: { type: String },
-    categories: { type: String },
+    service: { type: String },
+    phone: { type: String },
   },
   {
     timestamps: true,

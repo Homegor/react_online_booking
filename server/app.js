@@ -16,9 +16,6 @@ app.use(cors());
 app.use("/api", routes);
 const PORT = process.env.PORT || config.get("port") || 8080;
 
-// homegor14
-// OmGMxpxoDgI9d5iS
-
 if (process.env.NODE_ENV === "production") {
   app.use("/", express.static(path.join(__dirname, "client")));
 

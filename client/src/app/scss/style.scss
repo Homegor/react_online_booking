@@ -823,8 +823,9 @@ section {
 
 }
 // End Modal
+
 // Start booking information
-.booking, .users{
+.booking{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -835,6 +836,9 @@ section {
     border: 1px solid #fb9475;
     padding: 8px;
     margin: 5px;
+  }
+  &__info > p{
+    margin-bottom: 5px;
   }
   &__userInfo{
     float: right;
@@ -855,7 +859,56 @@ section {
     color: #000000;
   }
 }
+
 // End booking information
+
+// Start masters info
+
+.master{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  &__masterInfo{
+    width: 330px;
+    background-color: rgb(195 189 180 / 12%);
+    border-radius: 8px;
+    border: 1px solid #fb9475;
+    padding: 8px;
+    margin: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__cart{
+    width: 255px;
+    margin-top: 15px;
+  }
+  &__cart > p{
+    margin-bottom: 5px;
+  }
+  &__cart > p > span{
+    float: right;
+    color: #fb9475;
+  }
+  &__click{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  &__btn{
+    width: 120px;
+    font-size: 14px;
+  }
+  &__danger{
+    background-color: #ff000054;
+    font-weight: 600;
+    color: #000000;
+  }
+}
+
+// End masters info
 
 // Start Comment User Profile
 .commentUserProfile{

@@ -11,7 +11,7 @@ import { Navigate, Outlet } from "react-router-dom"
 import LoginPage from "../components/pages/loginPage"
 import RegisterPage from "../components/pages/registerPage"
 import CommentsUserList from "../components/ui/adminProfile/commentsUserList"
-import AllUsersList from "../components/ui/adminProfile/allUsersList"
+import AllMastersList from "../components/ui/adminProfile/allMastersList"
 import AdminPage from "../components/pages/adminPage/adminPage"
 
 export const Routes = (isLoggedIn, location) => [
@@ -53,7 +53,7 @@ export const Routes = (isLoggedIn, location) => [
         element: <Outlet />,
         children: [
           { path: "about", element: <AboutUserList /> },
-          { path: "allUsers", element: <AllUsersList /> },
+          { path: "masters", element: <AllMastersList /> },
           { path: "static", element: <StatisticsUserList /> },
           {
             path: "booking",

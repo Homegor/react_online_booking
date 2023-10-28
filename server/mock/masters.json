@@ -2,45 +2,37 @@
   {
     "name": "Краснова Ирина",
     "email": "krasnova@mail.ru",
-    "avatars": "https://api.dicebear.com/7.x/adventurer/svg?seed=Boo",
-    "image": "http://localhost:8080/api/images/irina.png",
+    "image": "https://i.ibb.co/7b1zwzb/girl-1.png",
     "experience": 5,
     "birthdate": "1995-05-25",
-    "categoriesId": [
-      "Маникюр и педикюр"
-    ]
+    "service": "Маникюр - Педикюр",
+    "phone": "+7-(999)-999-9999"
   },
   {
     "name": "Киселева Алина",
     "email": "kiseleva@mail.ru",
-    "avatars": "https://api.dicebear.com/7.x/adventurer/svg?seed=Sam",
-    "image": "http://localhost:8080/api/images/alina.png",
+    "phone": "+7-(999)-999-9999",
+    "image": "https://i.ibb.co/xh9BZ9r/girl-3.png",
     "experience": 7,
-    "birthdate": "1988-09-03",
-    "servicesId": [
-      "Макияж"
-    ]
+    "service": "Парикмахер",
+    "birthdate": "1988-09-03"
   },
   {
     "name": "Иванова Елена",
     "email": "ivanova@mail.ru",
-    "avatars": "https://api.dicebear.com/7.x/adventurer/svg?seed=Chester",
-    "image": "http://localhost:8080/api/images/elena.png",
-    "experience": 4,
-    "birthdate": "1993-11-12",
-    "servicesId": [
-      "Брови и ресницы"
-    ]
+    "phone": "+7-(999)-999-9999",
+    "image": "https://i.ibb.co/K2PdWs7/girl-4.png",
+    "experience": 9,
+    "service": "Массажист",
+    "birthdate": "1993-11-12"
   },
   {
     "name": "Калилова Жанна",
     "email": "kalilova@mail.ru",
-    "avatars": "https://api.dicebear.com/7.x/adventurer/svg?seed=Chester",
-    "image": "http://localhost:8080/api/images/janna.png",
+    "phone": "+7-(999)-999-9999",
+    "image": "https://i.ibb.co/zbKxTX3/girl-2.png",
     "experience": 10,
-    "birthdate": "1983-11-12",
-    "servicesId": [
-      "Брови и ресницы"
-    ]
+    "service": "Визажист-стилист",
+    "birthdate": "1983-11-12"
   }
 ]

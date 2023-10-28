@@ -22,10 +22,9 @@ const AppLoader = ({ children }) => {
     dispatch(loadServicesList())
     dispatch(loadCommentsList())
     dispatch(loadUsersList())
-
+    dispatch(loadMastersList())
     if (isLoggedIn) {
       dispatch(loadingBookingList())
-      dispatch(loadMastersList())
     }
   }, [isLoggedIn])
 

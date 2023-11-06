@@ -1,14 +1,12 @@
-import React, { useState } from "react"
+import React from "react"
 import NavBar from "./navBar"
 import Button from "react-bootstrap/Button"
 import Offcanvas from "react-bootstrap/Offcanvas"
 import { Link } from "react-router-dom"
+import useHamburgerMenu from "../../../../hooks/useHamburgerMenu"
 
 const HamburgerMenu = () => {
-  const [show, setShow] = useState(false)
-
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+  const { show, handleShow, handleClose } = useHamburgerMenu()
 
   return (
     <>
@@ -31,7 +29,7 @@ const HamburgerMenu = () => {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <NavBar />
+          <NavBar onClick={handleClose} />
         </Offcanvas.Body>
       </Offcanvas>
     </>

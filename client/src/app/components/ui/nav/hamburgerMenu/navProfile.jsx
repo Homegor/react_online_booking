@@ -1,16 +1,18 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import { getCurrentUserData, logOut } from "../../../../store/slices/userSlice"
 import { useDispatch, useSelector } from "react-redux"
+import useHamburgerMenu from "../../../../hooks/useHamburgerMenu"
+import PropTypes from "prop-types"
 
-const NavProfile = () => {
-  const [isOpen, setOpen] = useState(false)
+const NavProfile = ({ onClick }) => {
+  const { toggleMenu, show } = useHamburgerMenu()
   const currentUser = useSelector(getCurrentUserData())
 
   const dispatch = useDispatch()
 
-  const toggleMenu = () => {
-    setOpen((prevState) => !prevState)
+  const handleCloseProfile = () => {
+    toggleMenu()
   }
   const handleLogOut = () => {
     dispatch(logOut())
@@ -31,7 +33,7 @@ const NavProfile = () => {
                 alt=''
               />
             </div>
-            <div className='dropdown' onClick={toggleMenu}>
+            <div className='dropdown' onClick={handleCloseProfile}>
               <button
                 className={"btn-dropdown dropdown-toggle"}
                 type='button'
@@ -42,12 +44,13 @@ const NavProfile = () => {
                 {currentUser.name}
               </button>
               <ul
-                className={"dropdown-menu " + (isOpen === true ? "show" : "")}
+                className={"dropdown-menu " + (show === true ? "show" : "")}
                 aria-labelledby='dropdownMenuButton1'
               >
                 <li>
                   <Link
                     className='dropdown-item'
+                    onClick={onClick}
                     to={`/userPage/${currentUser._id}/about`}
                   >
                     Профиль
@@ -66,5 +69,7 @@ const NavProfile = () => {
     </>
   )
 }
-
+NavProfile.propTypes = {
+  onClick: PropTypes.bool
+}
 export default NavProfile

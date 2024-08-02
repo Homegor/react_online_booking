@@ -119,6 +119,9 @@ section {
 .user-info > p:not(:last-child) {
   border-bottom: 1px solid #278aff;
 }
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+  border-color: $green;
+}
 // End other styles
 
 // Start navigation

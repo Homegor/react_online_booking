@@ -11,7 +11,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.options("*", cors());
+app.use(cors());
 
 app.use("/api", routes);
 const PORT = process.env.PORT || config.get("port") || 8080;
